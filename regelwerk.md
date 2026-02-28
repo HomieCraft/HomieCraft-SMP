@@ -1,1 +1,1 @@
-###Regelwerk
+# HomieCraft SMP – Regelwerk
