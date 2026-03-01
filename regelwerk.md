@@ -1,157 +1,123 @@
-# § HomieCraft SMP – Server-Regelwerk
+# HomieCraft SMP – Server-Regelwerk
 
 ---
 
-## §1 Allgemeiner Umgang
-**§1.1** Behandle andere Spieler respektvoll.  
-**§1.2** Beleidigungen, Provokationen oder absichtliches Nerven sind nicht erlaubt.
+## §1 Geltungsbereich
+- **§1.1** Die Regeln gelten auf dem gesamten Server-Netzwerk.  
+- **§1.2** Sie gelten für alle Spielmodi (inkl. SMP).  
+- **§1.3** Auf dem Builder-Server können zusätzliche oder abweichende Regeln gelten (§6).  
+- **§1.4** Die Regeln gelten ebenfalls für den Ingame-Chat und Voicechat (§2.2, §2.3).  
+- **§1.5** Mit dem Betreten des Servers stimmt jeder Spieler den Regeln automatisch zu.  
+- **§1.6** Es gibt keine Altersbeschränkung.  
+- **§1.7** Jede Sprache ist erlaubt, solange die Kommunikation lesbar und nachvollziehbar ist.  
+- **§1.8** Unlesbare Zeichenfolgen, Schriftzeichen-Spam oder absichtliche Unverständlichkeit sind verboten.  
 
 ---
 
-## §2 Mobbing & Stalking
-**§2.1** Wiederholtes absichtliches Verfolgen oder Belästigen von Spielern ist verboten.  
-**§2.2** Beleidigungen, Drohungen und Diskriminierung sind nicht erlaubt.  
-**§2.3** Caps und Spam sind in Maßen erlaubt, 5 Nachrichten hintereinander sind okay, danach nicht übertreiben.
+## §2 Verhaltensregeln
+
+### §2.1 Allgemeiner Umgang
+- **§2.1.1** Spieler müssen respektvoll und höflich miteinander umgehen.  
+- **§2.1.2** Leichte Beleidigungen wie „Scheiße“ sind erlaubt; schwerwiegende Beleidigungen sind verboten.  
+- **§2.1.3** Trolling ist erlaubt, solange es den Spielspaß anderer nicht dauerhaft zerstört.  
+- **§2.1.4** Provokationen sind erlaubt, solange sie nicht in Mobbing oder Belästigung übergehen (§2.2, §2.3).  
+- **§2.1.5** Diskriminierung, rassistische, sexistische oder homophobe Aussagen sind streng verboten (§2.3).  
+- **§2.1.6** Doxxing und Drohungen sind verboten.  
+
+### §2.2 Chat-Regeln
+- **§2.2.1** Spam ist in Maßen erlaubt (maximal 3 Nachrichten hintereinander).  
+- **§2.2.2** Dauerhafte Großschreibung ist verboten; einzelne Wörter zur Betonung sind erlaubt.  
+- **§2.2.3** Unlesbare Zeichenfolgen oder übermäßiger Symbol-/Zeichenspam sind verboten.  
+- **§2.2.4** Die Regeln gelten für alle Ingame-Chats (global, lokal, privat).  
+
+### §2.3 Voice-Chat-Regeln
+- **§2.3.1** Respektvoller Umgang ist Pflicht.  
+- **§2.3.2** Locker Beleidigungen sind erlaubt, schwere Beleidigungen nicht (§2.1.2).  
+- **§2.3.3** Störende Geräusche, lautes Schreien oder absichtliches Sabotieren des Voice-Chats sind verboten.  
+- **§2.3.4** Aufnahmen sind nur für Streams oder Videos erlaubt; private Mitschnitte sind untersagt.  
 
 ---
 
-## §3 PvP
-**§3.1** PvP ist in der gesamten SMP-Welt erlaubt, außer im 5-Block-Radius um den Spawn.
+## §3 Spielregeln – SMP
+
+### §3.1 PvP
+- **§3.1.1** PvP ist auf dem gesamten SMP-Server erlaubt, ausgenommen spezielle Bereiche wie Lobby oder Builder-Server (§1.3).  
+- **§3.1.2** Am Spawn gilt ein Schutzradius von 10 Blöcken: PvP sowie Blockabbau und -platzierung sind verboten (§3.5).  
+- **§3.1.3** Während Events können Sonderregeln für PvP gelten (§3.1.4, §3.2).  
+- **§3.1.4** AFK-Spieler dürfen nicht angegriffen werden (§3.8); AFK-Abuse ist verboten.  
+- **§3.1.5** Stream-Sniping ist verboten, solange der Streamer dies nicht ausdrücklich erlaubt (§2.3.4).  
+
+### §3.2 Perma-Killing / Targeting
+- **§3.2.1** Wiederholtes, gezieltes Töten derselben Person ist nur erlaubt, wenn beide Spieler dies ausdrücklich gestatten (§3.1.3).  
+- **§3.2.2** Bei Events können Sonderregeln gelten (§3.1.3); diese haben Vorrang.  
+- **§3.2.3** Absichtliches Stalken oder Belästigen im Rahmen von PvP ist nicht erlaubt (§2.1.4).  
+
+### §3.3 Griefing & Raiden
+- **§3.3.1** Griefing und Raiden sind grundsätzlich erlaubt.  
+- **§3.3.2** Einschränkungen: Spawnbereich und öffentliche Gebäude sind geschützt; besonders aufwendig gebaute oder ästhetische Bauwerke dürfen nicht zerstört werden (§3.5).  
+- **§3.3.3** Rückerstattung von Items oder Basen erfolgt nur bei klaren Regelverstößen oder Server-Bugs (§3.4, §4.2).  
+- **§3.3.4** Spieler sollen trotz erlaubtem Griefing fair agieren; massives Stören kann sanktioniert werden (§5).  
+
+### §3.4 Item-Rückgaben
+- **§3.4.1** Items werden nur zurückgegeben, wenn ein klarer Regelverstoß oder ein Server-Bug vorliegt (§3.3.3, §4.2).  
+- **§3.4.2** Für sonstige Verluste besteht kein Anspruch auf Rückerstattung.  
+
+### §3.5 Spawn-Schutz
+- **§3.5.1** Am Spawn gilt ein Schutzradius von 10 Blöcken für PvP, Blockabbau und Platzierung (§3.1.2).  
+- **§3.5.2** Geschützte öffentliche Gebäude werden mit einer entsprechenden Nachricht angezeigt.  
+
+### §3.6 Farmen
+- **§3.6.1** Automatische Farmen sind erlaubt, solange sie die Server-Performance nicht beeinträchtigen (§4.3).  
+- **§3.6.2** Große oder komplexe Farmen müssen einem Admin gemeldet werden; Nutzung erfolgt erst nach Freigabe (§3.7).  
+- **§3.6.3** AFK-Farmen dürfen genutzt werden; AFK-Abuse ist verboten (§3.8).  
+
+### §3.7 Redstone & große Maschinen
+- **§3.7.1** Redstone-Maschinen sind erlaubt, solange sie die Server-Performance nicht beeinträchtigen (§4.3).  
+- **§3.7.2** Komplexe oder besonders große Maschinen müssen vorab einem Admin gemeldet werden; Nutzung erfolgt erst nach Freigabe (§3.6.2).  
+
+### §3.8 AFK-Regeln
+- **§3.8.1** Spieler gelten nach 2 Minuten Inaktivität oder durch Nutzung von `/afk` als AFK.  
+- **§3.8.2** AFK-Spieler dürfen nicht angegriffen werden; AFK-Abuse ist verboten (§3.1.4, §3.6.3).  
 
 ---
 
-## §4 Kein Perma-Killing
-**§4.1** Wiederholtes, gezieltes Töten derselben Person über längere Zeit ist verboten, wenn dadurch der Spielspaß zerstört wird.
+## §4 Technische Regeln – SMP
+
+### §4.1 Hacking, Cheating & Mods
+- **§4.1.1** Bestimmte Mods sind erlaubt, solange sie keinen unfairen Vorteil verschaffen (z. B. Fullbright, Low Fire, Litematica als Vorlage) (§3.6, §3.7).  
+- **§4.1.2** Nicht erlaubt: X-Ray oder Mods, die Ressourcen, PvP oder Spielfortschritt automatisch beeinflussen (§3.1, §3.2).  
+- **§4.1.3** Automatisierte Tools oder Bots sind verboten.  
+
+### §4.2 Bugs & Exploits
+- **§4.2.1** Bekannte Minecraft-Bugs dürfen nur genutzt werden, wenn sie keinen Spielfortschritt verschaffen (§4.1).  
+- **§4.2.2** Alle unbekannten oder serverrelevanten Bugs müssen über `/bugreport` gemeldet werden (§5.1).  
+- **§4.2.3** Absichtliche Ausnutzung von Bugs ist verboten (§3.3, §5).  
+
+### §4.3 Server-Performance
+- **§4.3.1** Spieler dürfen keine Maschinen oder Farmen bauen, die den Server absichtlich zum Laggen bringen (§3.6, §3.7).  
+- **§4.3.2** Große oder komplexe Konstruktionen müssen vorab einem Admin gemeldet werden (§3.6.2, §3.7.2).  
+- **§4.3.3** Ziel ist ein stabiler und spielbarer Server für alle Teilnehmer.  
 
 ---
 
-## §5 Griefing & Raiden
-**§5.1** Griefing und Raiden sind erlaubt.  
-**§5.2** Es gibt keinen Anspruch auf Rückerstattung von Items oder Basen.
+## §5 Meldesystem & Sanktionen – SMP
 
----
+### §5.1 Reports
+- **§5.1.1** Spieler können Regelverstöße über `/report <Spieler>` melden.  
+- **§5.1.2** Meldungen an Teammitglieder sind möglich, der offizielle Weg über `/report` wird bevorzugt (§5.3).  
+- **§5.1.3** Screenshots oder Clips sind hilfreich, aber nicht zwingend.  
+- **§5.1.4** Alle Teammitglieder dürfen Reports bearbeiten; Builder sind hiervon ausgenommen (§1.3).  
 
-## §6 Item-Rückgaben
-**§6.1** Items werden nur zurückgegeben, wenn sie durch einen klaren Regelbruch oder durch einen Server-Bug verloren gingen.
+### §5.2 Falsche Reports
+- **§5.2.1** Absichtlich falsche Reports werden bestraft (§5.4).  
+- **§5.2.2** Wiederholte falsche Reports führen zu strengeren Sanktionen (§5.4).  
 
----
+### §5.3 Beweise & Entscheidungen
+- **§5.3.1** Die Einschätzung des Teams reicht aus, um Regelverstöße zu bewerten (§5.1).  
+- **§5.3.2** Clips oder Screenshots sind empfohlen, aber nicht zwingend erforderlich (§5.1.3).  
+- **§5.3.3** Teamregeln legen fest, wer welche Rechte hat (§6, später).  
 
-## §7 Spawn-Schutz
-**§7.1** Im 5-Block-Radius um den Spawn ist PvP und Block-Abbau verboten.
-
----
-
-## §8 Bugs & Exploits
-**§8.1** Alles, was den Server stört, inklusive Bugs, Sounds oder Nachrichten, darf nicht absichtlich zu Vorteilen ausgenutzt werden.  
-**§8.2** Gefundene Bugs müssen mit `/bugreport` gemeldet werden.  
-**§8.3** Unabsichtliches Ausnutzen wird nicht bestraft, wiederholtes oder absichtliches Ausnutzen schon.
-
----
-
-## §9 Falsche Reports & Bug-Ausnutzung
-**§9.1** Melde nur echte Verstöße.  
-**§9.2** Absichtliche falsche Reports oder das absichtliche Ausnutzen von Bugs sind verboten.
-
----
-
-## §10 Server-Performance
-**§10.1** Absichtliches Laggen, Performance-Missbrauch oder das Erzeugen von Server-Lag ist strengstens verboten.
-
----
-
-## §11 Redstone & große Maschinen
-**§11.1** Redstone ist erlaubt.  
-**§11.2** Sehr große oder komplexe Maschinen müssen vorher einem Admin gemeldet werden.
-
----
-
-## §12 Farmen
-**§12.1** Farmen sind generell erlaubt, solange sie die Server-Performance nicht negativ beeinflussen.
-
----
-
-## §13 AFK
-**§13.1** Spieler gelten nach 2 Minuten oder `/afk` als AFK.  
-**§13.2** AFK-Spieler dürfen nicht getötet werden, außer das Verhalten wird absichtlich ausgenutzt.  
-**§13.3** AFK-Abusen kann Konsequenzen nach sich ziehen.
-
----
-
-## §14 Events
-**§14.1** Bei Events gelten zusätzliche Regeln.  
-**§14.2** Diese sind verbindlich und haben Vorrang.
-
----
-
-## §15 Event-Verhalten & Teams
-**§15.1** Bei Events gelten die vorgegebenen Team- und Spielregeln.  
-**§15.2** Unfaires Spielen oder Regelumgehung ist verboten.
-
----
-
-## §16 Streams & Videos
-**§16.1** Es ist erlaubt, Streams oder Videos aufzunehmen oder anzuschauen.  
-**§16.2** Das gezielte Töten von Streamern ist nur erlaubt, wenn der Streamer es ausdrücklich erlaubt.
-
----
-
-## §17 Voice-Chat
-**§17.1** Respektiere andere Spieler im Voice-Chat.  
-**§17.2** Beleidigungen, Drohungen oder Diskriminierung sind verboten.  
-**§17.3** Lautes Schreien, Spam oder störende Geräusche sollten vermieden werden.  
-**§17.4** Absichtliches Trollen oder Sabotieren des Voice-Chats kann bestraft werden.
-
----
-
-## §18 Werbung
-**§18.1** Werbung für kleinere Server oder private Projekte ist nicht erlaubt.  
-**§18.2** Bekannte, große Server dürfen genannt werden, z. B. „Ich spiele auf Gomme“.  
-**§18.3** Aufrufe wie „Kommt alle her“ oder „Joint meinem Server“ sind verboten.
-
----
-
-## §19 Anweisungen des Teams
-**§19.1** Anweisungen von Admins und Mods sind verbindlich.  
-**§19.2** Mods dürfen handeln, wenn sie sich sicher über einen Regelverstoß sind.
-
----
-
-## §20 Beweise & Entscheidungen
-**§20.1** Clips oder Screenshots sind hilfreich, aber nicht zwingend notwendig.  
-**§20.2** Wenn Admin sich sicher ist, reicht dessen Einschätzung.
-
----
-
-## §21 Strafen & Diskussionen
-**§21.1** Strafen werden nicht im Chat diskutiert.  
-**§21.2** Das Server-Team kann sich Zeit nehmen, um Entscheidungen zu prüfen.  
-**§21.3** Die Entscheidung des Teams ist final.
-
----
-
-## §22 Rechte & Team
-**§22.1** Missbrauch von Admin- oder Mod-Rechten ist verboten.  
-**§22.2** Dazu gehören z. B. Teleports, Spawn-Manipulation, Kill-Befehle oder Server-Commands.
-
----
-
-## §23 Falsche Behauptungen über Teammitglieder
-**§23.1** Erfinde keine Geschichten über Admins oder Mods und verbreite keine Unwahrheiten.  
-**§23.2** Behandle Entscheidungen des Teams fair und respektvoll.
-
----
-
-## §24 Spieler melden
-**§24.1** Wenn ein Spieler gegen die Regeln verstößt, kann er von jedem Spieler dem Team gemeldet werden.  
-**§24.2** Verwende dazu die vorhandenen Meldesysteme (z. B. `/report`).  
-**§24.3** Falsche Reports sind verboten und können bestraft werden.
-
----
-
-## §25 Meta-Regeln
-**§25.1** Jeder Spieler ist für seine Items und Basen selbst verantwortlich.  
-**§25.2** Alt-Accounts zur Umgehung von Strafen sind verboten.  
-**§25.3** Anstößige Bauwerke sind nicht erlaubt.  
-**§25.4** Unwissenheit schützt nicht vor Strafen.  
-**§25.5** Lücken im Regelwerk schützen nicht vor Strafen.  
-**§25.6** Das Server-Team entscheidet situationsbedingt.
+### §5.4 Sanktionen / Strafen
+- **§5.4.1** Strafen können Verwarnungen, temporäre oder permanente Sperren umfassen.  
+- **§5.4.2** Ban-Umgehung und Nutzung von Zweitaccounts ohne Erlaubnis sind verboten (§3.2.1).  
+- **§5.4.3** Diskussionen über Strafen erfolgen nicht im öffentlichen Chat, sondern in den Support-Channels im Minecraft-Chat (§5.1).  
