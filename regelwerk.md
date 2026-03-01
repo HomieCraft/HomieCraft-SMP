@@ -22,7 +22,9 @@
 - **§2.1.3** Trolling ist erlaubt, solange es den Spielspaß anderer nicht dauerhaft zerstört.  
 - **§2.1.4** Provokationen sind erlaubt, solange sie nicht in Mobbing oder Belästigung übergehen (§2.2, §2.3).  
 - **§2.1.5** Diskriminierung, rassistische, sexistische oder homophobe Aussagen sind streng verboten (§2.3).  
-- **§2.1.6** Doxxing und Drohungen sind verboten.  
+- **§2.1.6** Doxxing und Drohungen sind verboten.
+- **§2.1.7** Spieler dürfen **nicht nach Team-Rechten, Admin-Rechten oder Mod-Rechten fragen**.  
+- **§2.1.8** Diskussionen über Berechtigungen oder Team-Entscheidungen im Chat sind untersagt; Fragen werden nur über offizielle Support-Kanäle beantwortet.
 
 ### §2.2 Chat-Regeln
 - **§2.2.1** Spam ist in Maßen erlaubt (maximal 3 Nachrichten hintereinander).  
