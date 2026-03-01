@@ -52,8 +52,10 @@ Hier findest du alle Infos, Regeln und Tipps, um direkt loszulegen.
 | Name | Rolle | Kontakt |
 |------|------|--------|
 | LucaMaximal | Owner | `/msg LucaMaximal` |
-| Eierfratze0815 | Owner | `/msg Eierfratze0815` |
+| Eierfratze0815 | Owner / Dev | `/msg Eierfratze0815` |
 | LinusCreeperTH | Admin | `/msg LinusCreeperTH` |
+| Renepvpnoob | Admin | `/msg Renepvpnoob` | 
+| Poseidon_Lp | Moderator | `/msg Poseidon_L` |
 
 ---
 
