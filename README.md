@@ -2,13 +2,13 @@
 Hier findest du alle Infos und das Regelwerk für **HomieCraft SMP**.
 
 ## Inhaltsverzeichnis
-- [Infos](##infos)
+- [Infos](#infos)
 - [News](news.md)
 - [Events](events.md)
 - [Regelwerk](regelwerk.md)
-- [Commands](##commands)
-- [Hilfe](##hilfe)
-- [Team](##team)
+- [Commands](#commands)
+- [Hilfe](#hilfe)
+- [Team](#team)
 
 ---
 
