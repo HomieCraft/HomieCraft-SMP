@@ -17,6 +17,8 @@ Hier findest du alle Infos und das Regelwerk für **HomieCraft SMP**.
 Aktuelle IP
 `Eierfratze0815.aternos.me`  
 **Version:** 1.20.1 - 1.21.11  
+Willkommen auf **HomieCraft SMP** – deinem Minecraft Survival Multiplayer Server!  
+Hier findest du alle Infos, Regeln und Tipps, um direkt loszulegen.
 
 **Was du auf dem Server machen kannst:**  
 - Baue dein eigenes Haus oder Stadtviertel  
@@ -52,3 +54,21 @@ Aktuelle IP
 | LucaMaximal | Owner | `/msg LucaMaximal` |
 | Eierfratze0815 | Owner | `/msg Eierfratze0815` |
 | LinusCreeperTH | Admin | `/msg LinusCreeperTH` |
+
+---
+
+## 📰 News
+Bleibe auf dem Laufenden: [News](news.md)  
+Hier findest du Updates, Events und Ankündigungen für den Server.  
+
+---
+
+## Tipps für neue Spieler
+- Erkunde zuerst die Spawn-Region und lerne die Regeln.  
+- Tritt einem Team oder Freundesgruppe bei, um schneller Ressourcen zu sammeln.  
+- Schau regelmäßig in die News, um keine Events zu verpassen.  
+- Sei kreativ – baue, handele und hab Spaß!  
+
+---
+
+**Viel Spaß auf HomieCraft SMP!**
