@@ -1,28 +1,125 @@
-function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    if (menu.style.right === "0px") {
-        menu.style.right = "-250px";
-    } else {
-        menu.style.right = "0px";
-    }
-}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>HomieCraft SMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-function copyIP() {
-    navigator.clipboard.writeText("homiecraft-smp.aternos.me");
-    alert("IP kopiert!");
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-window.onscroll = function() {
-    const btn = document.getElementById("topBtn");
-    if (document.documentElement.scrollTop > 300) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
-};
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+<!-- Navigation -->
+<header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Server Logo">
+        <span class="logo-text">
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </span>
+    </div>
 
-document.getElementById("server-status").innerText = "Online";
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- Side Menu -->
+<div id="sideMenu" class="side-menu">
+    <a href="index.html">Startseite</a>
+    <a href="regelwerk.html">Regelwerk</a>
+    <a href="news.html">News</a>
+    <a href="raenge.html">Ränge</a>
+    <a href="events.html">Events</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Willkommen auf</h2>
+        <h1><span class="cyan glow">HomieCraft</span> <span class="purple glow-strong">SMP</span></h1>
+
+        <div class="server-box">
+            <p>Status: <span id="server-status">Online</span></p>
+            <p>Version: 1.20.1 – 1.21.11</p>
+            <p>Slots: 30</p>
+            <button onclick="copyIP()">IP kopieren</button>
+            <p class="ip">homiecraft-smp.aternos.me</p>
+        </div>
+
+        <div class="scroll-down">▼</div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section">
+    <h2>Warum HomieCraft?</h2>
+    <div class="cards">
+        <div class="card">💎 Alle Ränge erspielbar – Kein Pay2Win</div>
+        <div class="card">🎉 Regelmäßige Events</div>
+        <div class="card">🛡 Aktives Team</div>
+        <div class="card">⚔ Klassisches SMP + mehr coming soon</div>
+    </div>
+</section>
+
+<!-- Team Preview -->
+<section class="section">
+    <h2>Team</h2>
+    <div class="cards">
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/LucaMaximal" alt="">
+            <h3>LucaMaximal</h3>
+            <span class="rank owner">OWNER / DEVELOPER</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/Eierfratze0815" alt="">
+            <h3>Eierfratze0815</h3>
+            <span class="rank owner">OWNER</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/AdminName" alt="">
+            <h3>AdminName</h3>
+            <span class="rank admin">ADMIN</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/DevName" alt="">
+            <h3>DevName</h3>
+            <span class="rank dev">DEVELOPER</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/ModName" alt="">
+            <h3>ModName</h3>
+            <span class="rank mod">MODERATOR</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/SupportName" alt="">
+            <h3>SupportName</h3>
+            <span class="rank support">SUPPORT</span>
+        </div>
+
+        <div class="card team-card">
+            <img src="https://mc-heads.net/avatar/BuilderName" alt="">
+            <h3>BuilderName</h3>
+            <span class="rank builder">BUILDER</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Scroll Top Button -->
+<button id="topBtn" onclick="scrollToTop()">⬆</button>
+
+<footer>
+    © 2026 HomieCraft SMP<br>
+    Nicht offiziell mit Mojang oder Microsoft verbunden.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
