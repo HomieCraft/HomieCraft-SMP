@@ -8,33 +8,29 @@ html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
-    background-color: #0f0f0f; /* Dunkler Hintergrund */
-    color: white; /* Grundfarbe Text */
+    background-color: #0f0f0f;
+    color: white;
     font-family: Arial, sans-serif;
 }
 
-/* Container für alles */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Überschrift */
 h1 {
     font-size: 3em;
     text-align: center;
     color: #ffcc00;
-    text-shadow: 0 0 10px #ffcc00;
+    text-shadow: 0 0 15px #ffcc00;
     margin-bottom: 40px;
 }
 
-/* Sektionen */
 .section {
     margin-bottom: 60px;
 }
 
-/* Ränge Box */
 .rank {
     background-color: #1c1c1c;
     padding: 25px;
@@ -47,26 +43,33 @@ h1 {
     transition: 0.3s;
 }
 
-/* Hover Effekt */
+/* Hover Effekt für alle Ränge */
 .rank:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #ffffff;
+    box-shadow: 0 0 20px #ffffff;
 }
 
 /* Spieler-Ränge Farben */
 .spieler { color: #aaaaaa; }
-.premium { color: #ffaa00; }
-.supreme { color: #0000aa; }
-.vip { color: #aa00aa; }
-.creator { color: #ff55ff; }
+.premium { color: #ffaa00; text-shadow: 0 0 10px #ffaa00; }
+.supreme { color: #0000aa; text-shadow: 0 0 8px #0000aa; }
+.vip { color: #aa00aa; text-shadow: 0 0 8px #aa00aa; }
+.creator { color: #ff55ff; text-shadow: 0 0 8px #ff55ff; }
 
 /* Staff-Ränge Farben */
-.support { color: #ffff55; }
-.mod { color: #ff5555; }
-.dev { color: #55ffff; }
-.admin { color: #aa0000; }
-.owner { color: #aa0000; text-shadow: 0 0 15px red; }
+.support { color: #ffff55; text-shadow: 0 0 5px #ffff55; }
+.mod { color: #ff5555; text-shadow: 0 0 8px #ff5555; }
+.dev { color: #55ffff; text-shadow: 0 0 8px #55ffff; }
+.admin { color: #aa0000; text-shadow: 0 0 10px #aa0000; }
+.owner { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
 
+/* Beschreibung unter Rang */
+.rank-desc {
+    font-size: 0.9em;
+    color: #dddddd;
+    margin-top: 10px;
+    text-align: left;
+}
 </style>
 </head>
 <body>
@@ -76,23 +79,94 @@ h1 {
 
 <div class="section">
 <h2>🎮 Spieler-Ränge</h2>
-<div class="rank spieler">Spieler</div>
-<div class="rank premium">Premium</div>
-<div class="rank supreme">Supreme</div>
-<div class="rank vip">VIP</div>
-<div class="rank creator">Creator</div>
+
+<div class="rank spieler">Spieler
+    <div class="rank-desc">
+        - Standard-Survival Rechte<br>
+        - Bauen, Farmen, Handeln<br>
+        - Kein Zugriff auf administrative Befehle
+    </div>
+</div>
+
+<div class="rank premium">Premium
+    <div class="rank-desc">
+        - Zusätzliche Homes<br>
+        - Kleine kosmetische Vorteile<br>
+        - Besondere Chatfarbe
+    </div>
+</div>
+
+<div class="rank supreme">Supreme
+    <div class="rank-desc">
+        - Mehr Homes<br>
+        - Teilnahme an Events<br>
+        - Erweiterte Features und Extras
+    </div>
+</div>
+
+<div class="rank vip">VIP
+    <div class="rank-desc">
+        - Exklusive Extras<br>
+        - Besondere Rechte<br>
+        - Spezieller Rang im Chat
+    </div>
+</div>
+
+<div class="rank creator">Creator
+    <div class="rank-desc">
+        - Content für den Server erstellen<br>
+        - Teilnahme an Community-Projekten<br>
+        - Promotion-Unterstützung
+    </div>
+</div>
+
 </div>
 
 <div class="section">
 <h2>🛡 Server-Team</h2>
-<div class="rank support">Supporter</div>
-<div class="rank mod">Moderator</div>
-<div class="rank dev">Developer</div>
-<div class="rank admin">Administrator</div>
-<div class="rank owner">OWNER</div>
+
+<div class="rank support">Supporter
+    <div class="rank-desc">
+        - Spielern helfen<br>
+        - Fragen beantworten<br>
+        - Probleme weiterleiten
+    </div>
+</div>
+
+<div class="rank mod">Moderator
+    <div class="rank-desc">
+        - Chat überwachen<br>
+        - Regelverstöße ahnden<br>
+        - Spieler verwarnen
+    </div>
+</div>
+
+<div class="rank dev">Developer
+    <div class="rank-desc">
+        - Plugins verwalten<br>
+        - Bugs beheben<br>
+        - Technische Aufgaben
+    </div>
+</div>
+
+<div class="rank admin">Administrator
+    <div class="rank-desc">
+        - Serververwaltung<br>
+        - Teamkoordination<br>
+        - Wichtige Entscheidungen treffen
+    </div>
+</div>
+
+<div class="rank owner">OWNER
+    <div class="rank-desc">
+        - Voller Zugriff auf alles<br>
+        - Serverleitung<br>
+        - Projektorganisation
+    </div>
 </div>
 
 </div>
 
+</div>
 </body>
 </html>
