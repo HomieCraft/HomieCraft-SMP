@@ -5,7 +5,7 @@
     <title>HomieCraft SMP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -20,26 +20,28 @@
             <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
         </span>
     </div>
-
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- Side Menu -->
+<!-- Side Menu / Inhaltsverzeichnis -->
 <div id="sideMenu" class="side-menu">
-    <a href="index.html">Startseite</a>
-    <a href="regelwerk.html">Regelwerk</a>
-    <a href="news.html">News</a>
-    <a href="raenge.html">Ränge</a>
-    <a href="events.html">Events</a>
+    <a href="#hero">Startseite</a>
+    <a href="#server-info">Server Info</a>
+    <a href="#spielmodi">Spielmodi</a>
+    <a href="#team">Team</a>
+    <a href="#commands">Commands</a>
+    <a href="#tipps">Tipps</a>
+    <a href="#extras">Extras</a>
 </div>
 
 <!-- Hero Section -->
-<section class="hero">
+<section id="hero" class="hero">
     <div class="hero-content">
         <h2>Willkommen auf</h2>
         <h1><span class="cyan glow">HomieCraft</span> <span class="purple glow-strong">SMP</span></h1>
+        <p class="prefix">&b&lHomie &5&lSMP</p>
 
-        <div class="server-box">
+        <div id="server-info" class="server-box">
             <p>Status: <span id="server-status">Online</span></p>
             <p>Version: 1.20.1 – 1.21.11</p>
             <p>Slots: 30</p>
@@ -51,64 +53,104 @@
     </div>
 </section>
 
-<!-- Features -->
-<section class="section">
-    <h2>Warum HomieCraft?</h2>
-    <div class="cards">
-        <div class="card">💎 Alle Ränge erspielbar – Kein Pay2Win</div>
-        <div class="card">🎉 Regelmäßige Events</div>
-        <div class="card">🛡 Aktives Team</div>
-        <div class="card">⚔ Klassisches SMP + mehr coming soon</div>
-    </div>
+<!-- Spielmodi -->
+<section id="spielmodi" class="section">
+    <h2>Spielmodi</h2>
+    <p>Derzeit verfügbar: SMP (Survival Multiplayer)<br>
+       Weitere Spielmodi folgen bald! <span class="coming-soon">Coming Soon!</span></p>
 </section>
 
-<!-- Team Preview -->
-<section class="section">
-    <h2>Team</h2>
-    <div class="cards">
+<!-- Was man hier machen kann -->
+<section id="was-machen" class="section">
+    <h2>Was man hier machen kann</h2>
+    <ul>
+        <li>Bauen & Erkunden</li>
+        <li>Ressourcen sammeln</li>
+        <li>An Events teilnehmen</li>
+        <li>Ränge erspielen durch Ingame-Money und Events</li>
+    </ul>
+</section>
 
+<!-- Teammitglieder -->
+<section id="team" class="section">
+    <h2>Teammitglieder</h2>
+    <div class="cards">
+        <!-- Platzhalter Teamkarten -->
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/LucaMaximal" alt="">
             <h3>LucaMaximal</h3>
             <span class="rank owner">OWNER / DEVELOPER</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/Eierfratze0815" alt="">
             <h3>Eierfratze0815</h3>
             <span class="rank owner">OWNER</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/AdminName" alt="">
             <h3>AdminName</h3>
             <span class="rank admin">ADMIN</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/DevName" alt="">
             <h3>DevName</h3>
             <span class="rank dev">DEVELOPER</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/ModName" alt="">
             <h3>ModName</h3>
             <span class="rank mod">MODERATOR</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/SupportName" alt="">
             <h3>SupportName</h3>
             <span class="rank support">SUPPORT</span>
         </div>
-
         <div class="card team-card">
             <img src="https://mc-heads.net/avatar/BuilderName" alt="">
             <h3>BuilderName</h3>
             <span class="rank builder">BUILDER</span>
         </div>
+    </div>
+</section>
 
+<!-- Commands Liste -->
+<section id="commands" class="section">
+    <h2>Commands Liste</h2>
+    <ul>
+        <li>/spawn – zum Spawn teleportieren</li>
+        <li>/home – eigenes Haus betreten</li>
+        <li>/warp &lt;Ort&gt; – zu Warps reisen</li>
+        <li>/tpa &lt;Spieler&gt; – Teleport-Anfrage</li>
+        <li>/msg &lt;Spieler&gt; &lt;Nachricht&gt; – private Nachricht</li>
+        <!-- Weitere Commands hier -->
+    </ul>
+</section>
+
+<!-- Tipps für Anfänger & Allgemeine Tipps -->
+<section id="tipps" class="section">
+    <h2>Tipps für Anfänger</h2>
+    <ul>
+        <li>Baue zuerst ein sicheres Zuhause</li>
+        <li>Sammele grundlegende Ressourcen wie Holz und Stein</li>
+        <li>Schütze dich vor Monstern in der Nacht</li>
+    </ul>
+    <h2>Allgemeine Tipps</h2>
+    <ul>
+        <li>Events geben zusätzliche Belohnungen</li>
+        <li>Ränge können durch Ingame-Money oder Events erspielt werden</li>
+        <li>Kooperiere mit anderen Spielern für größere Projekte</li>
+    </ul>
+</section>
+
+<!-- Extras -->
+<section id="extras" class="section">
+    <h2>Extras</h2>
+    <div class="cards">
+        <div class="card">🎉 Regelmäßige Events</div>
+        <div class="card">⚔ SMP + zukünftige Spielmodi</div>
+        <div class="card">💎 Alle Ränge erspielbar – Kein Pay2Win</div>
+        <div class="card">🛡 Aktives Team</div>
     </div>
 </section>
 
