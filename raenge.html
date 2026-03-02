@@ -1,171 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>HomieCraft SMP - Ränge</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-html { scroll-behavior: smooth; }
-body { margin:0; font-family: 'Arial', sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
+    <meta charset="UTF-8">
+    <title>Ränge – HomieCraft SMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* Hintergrund Blöcke + Nebel + Partikel */
-#block-pattern { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background-image: repeating-linear-gradient(0deg,#222 0 20px,#1a1a1a 20px 40px), repeating-linear-gradient(90deg,#222 0 20px,#1a1a1a 20px 40px); opacity:0.05; pointer-events:none; }
-#fog { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%); animation: fogMove 80s linear infinite; }
-@keyframes fogMove { 0% { background-position:0 0;} 50%{background-position:200px 100px;} 100%{background-position:0 0;} }
-#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-.particle { position:absolute; border-radius:50%; animation-name: float,sway; animation-iteration-count: infinite; animation-timing-function: linear; }
-@keyframes float { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
-@keyframes sway { 0%,100% { transform: translateX(0px); } 50% { transform: translateX(15px); } }
-
-/* Container */
-.container { max-width:1200px; margin:auto; padding:20px; }
-h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; text-shadow:0 0 15px #ffcc00; }
-
-/* Home Button oben links */
-#homeBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #ffaa00;
-  color: #0f0f0f;
-  text-decoration: none;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  z-index: 10;
-  box-shadow: 0 0 10px #ffaa00;
-  transition: 0.3s;
-}
-#homeBtn:hover { background-color: #ffcc00; }
-
-/* Ränge */
-.rank { background-color: #1c1c1c; padding:25px; margin:15px auto; border-radius:12px; font-size:2em; font-weight:bold; width:90%; max-width:600px; text-align:center; transition:0.3s; cursor:pointer; perspective:800px; position: relative; }
-.rank:hover { transform: scale(1.05) rotateX(3deg) rotateY(3deg); box-shadow: 0 0 20px #ffffff; }
-.rank-desc { font-size:0.9em; color:#dddddd; margin-top:10px; text-align:left; }
-
-/* Spieler-Ränge */
-.spieler { color: #aaaaaa; }
-.premium { color: #ffaa00; text-shadow: 0 0 10px #ffaa00; }
-.supreme { color: #0000aa; text-shadow: 0 0 8px #0000aa; }
-.vip { color: #aa00aa; text-shadow: 0 0 8px #aa00aa; }
-.creator { color: #ff55ff; text-shadow: 0 0 8px #ff55ff; }
-
-/* Staff-Ränge */
-.support { color: #ffff55; text-shadow: 0 0 5px #ffff55; }
-.mod { color: #ff5555; text-shadow: 0 0 8px #ff5555; }
-.dev { color: #55ffff; text-shadow: 0 0 8px #55ffff; }
-.admin { color: #aa0000; text-shadow: 0 0 10px #aa0000; }
-.owner { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
-
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="block-pattern"></div>
-<div id="fog"></div>
-<div id="particles"></div>
+<!-- Navigation -->
+<header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Server Logo">
+        <span class="logo-text">
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </span>
+    </div>
 
-<!-- Home Button -->
-<a href="index.html" id="homeBtn" title="Zurück zur Startseite">🏠 Home</a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
 
-<div class="container">
-<h1>🏆 HomieCraft SMP – Ränge</h1>
-
-<h2>🎮 Spieler-Ränge</h2>
-<div class="rank spieler">Spieler
-  <div class="rank-desc">
-    - Standard-Survival Rechte<br>
-    - Bauen, Farmen, Handeln<br>
-    - Kein Zugriff auf administrative Befehle
-  </div>
-</div>
-<div class="rank premium">Premium
-  <div class="rank-desc">
-    - Zusätzliche Homes<br>
-    - Kleine kosmetische Vorteile<br>
-    - Besondere Chatfarbe
-  </div>
-</div>
-<div class="rank supreme">Supreme
-  <div class="rank-desc">
-    - Mehr Homes<br>
-    - Teilnahme an Events<br>
-    - Erweiterte Features und Extras
-  </div>
-</div>
-<div class="rank vip">VIP
-  <div class="rank-desc">
-    - Exklusive Extras<br>
-    - Besondere Rechte<br>
-    - Spezieller Rang im Chat
-  </div>
-</div>
-<div class="rank creator">Creator
-  <div class="rank-desc">
-    - Content für den Server erstellen<br>
-    - Teilnahme an Community-Projekten<br>
-    - Promotion-Unterstützung
-  </div>
+<!-- Side Menu -->
+<div id="sideMenu" class="side-menu">
+    <a href="index.html">Startseite</a>
+    <a href="regelwerk.html">Regelwerk</a>
+    <a href="news.html">News</a>
+    <a href="raenge.html">Ränge</a>
+    <a href="events.html">Events</a>
 </div>
 
-<h2>🛡 Server-Team</h2>
-<div class="rank support">Supporter
-  <div class="rank-desc">
-    - Spielern helfen<br>
-    - Fragen beantworten<br>
-    - Probleme weiterleiten
-  </div>
-</div>
-<div class="rank mod">Moderator
-  <div class="rank-desc">
-    - Chat überwachen<br>
-    - Regelverstöße ahnden<br>
-    - Spieler verwarnen
-  </div>
-</div>
-<div class="rank dev">Developer
-  <div class="rank-desc">
-    - Plugins verwalten<br>
-    - Bugs beheben<br>
-    - Technische Aufgaben
-  </div>
-</div>
-<div class="rank admin">Administrator
-  <div class="rank-desc">
-    - Serververwaltung<br>
-    - Teamkoordination<br>
-    - Wichtige Entscheidungen treffen
-  </div>
-</div>
-<div class="rank owner">OWNER
-  <div class="rank-desc">
-    - Voller Zugriff auf alles<br>
-    - Serverleitung<br>
-    - Projektorganisation
-  </div>
-</div>
+<!-- Ränge Section -->
+<section class="section">
+    <h1>Ränge auf HomieCraft SMP</h1>
 
-</div>
+    <!-- Team Ränge -->
+    <h2>Team Ränge</h2>
+    <div class="cards">
+        <div class="card rank-card owner">&4&lOWNER</div>
+        <div class="card rank-card admin">&4&lADMIN (Administrator)</div>
+        <div class="card rank-card dev">&b&lDev (Developer)</div>
+        <div class="card rank-card mod">&c&lMod (Moderator)</div>
+        <div class="card rank-card support">&eSup (Supporter)</div>
+        <div class="card rank-card builder">&2Builder</div>
+    </div>
 
-<script>
-// Partikel Minecraft-Farben
-const container = document.getElementById('particles');
-const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F'];
-for(let i=0;i<80;i++){
-    let p=document.createElement('div');
-    p.className='particle';
-    p.style.left=Math.random()*100+'vw';
-    p.style.top=Math.random()*100+'vh';
-    let size = 3 + Math.random()*4;
-    p.style.width = size + 'px';
-    p.style.height = size + 'px';
-    p.style.background = colors[Math.floor(Math.random()*colors.length)];
-    let duration = 15 + Math.random()*15;
-    let swayDuration = 3 + Math.random()*4;
-    p.style.animationDuration = duration+'s, '+swayDuration+'s';
-    container.appendChild(p);
-}
-</script>
+    <!-- Normale Spieler Ränge -->
+    <h2>Normale Ränge</h2>
+    <div class="cards">
+        <div class="card rank-card creator">&d&lCreator</div>
+        <div class="card rank-card homie">Homie</div>
+        <div class="card rank-card supreme">&1Supreme</div>
+        <div class="card rank-card premium">&6Premium</div>
+        <div class="card rank-card spieler">&7Spieler</div>
+        <div class="card rank-card vip">&5&lVIP</div>
+    </div>
+</section>
 
+<footer>
+    © 2026 HomieCraft SMP<br>
+    Nicht offiziell mit Mojang oder Microsoft verbunden.
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
