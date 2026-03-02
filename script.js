@@ -1,35 +1,24 @@
-/* --------------------
-   Hamburger Menü
--------------------- */
+// --------------------
+// Side Menu Toggle
+// --------------------
+const sideMenu = document.getElementById('sideMenu');
+
 function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    if (menu.style.right === "0px") {
-        menu.style.right = "-250px";
+    if(sideMenu.style.right === "0px") {
+        sideMenu.style.right = "-250px";
     } else {
-        menu.style.right = "0px";
+        sideMenu.style.right = "0px";
     }
 }
 
-/* --------------------
-   Copy Server IP
--------------------- */
-function copyIP() {
-    navigator.clipboard.writeText("homiecraft-smp.aternos.me")
-        .then(() => {
-            alert("IP kopiert: homiecraft-smp.aternos.me");
-        })
-        .catch(() => {
-            alert("Fehler beim Kopieren der IP!");
-        });
-}
-
-/* --------------------
-   Scroll-to-top Button
--------------------- */
-const topBtn = document.getElementById("topBtn");
+// --------------------
+// Scroll-to-top Button
+// --------------------
+const topBtn = document.getElementById('topBtn');
 
 window.onscroll = function() {
-    if (document.documentElement.scrollTop > 300) {
+    // Button sichtbar ab 200px scroll
+    if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
         topBtn.style.display = "block";
     } else {
         topBtn.style.display = "none";
@@ -40,17 +29,39 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* --------------------
-   Server Status Anzeige
--------------------- */
-function checkServerStatus() {
-    // Einfacher Platzhalter für jetzt
-    const statusEl = document.getElementById("server-status");
-    // Du könntest hier eine API einfügen, wenn Aternos API verfügbar ist
-    statusEl.innerText = "Online"; // Alternativ "Offline"
+// --------------------
+// Copy IP Button
+// --------------------
+function copyIP() {
+    const ipText = document.querySelector('.ip').textContent;
+    navigator.clipboard.writeText(ipText).then(() => {
+        alert(`IP "${ipText}" wurde kopiert!`);
+    });
 }
 
-// Seite fertig geladen → Server Status prüfen
-window.onload = function() {
-    checkServerStatus();
-};
+// --------------------
+// Scroll Fade-in Animation
+// --------------------
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight / 5 * 4;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if(sectionTop < triggerBottom) {
+            section.classList.add('visible');
+        }
+    });
+});
+
+// --------------------
+// Optional: Close Side Menu on link click
+// --------------------
+const sideLinks = document.querySelectorAll('.side-menu a');
+sideLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        sideMenu.style.right = "-250px";
+    });
+});
