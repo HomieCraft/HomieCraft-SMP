@@ -1,8 +1,8 @@
+/* --------------------
+   Fonts & Grundstil
+-------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
-/* --------------------
-   Grundstil
--------------------- */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -45,9 +45,18 @@ a {
 
 .logo-text {
     font-weight: 800;
-    font-size: 20px;
+    font-size: 24px;
 }
 
+/* Multi-Farb-Glow für HomieCraft SMP */
+.glow-multi {
+    background: linear-gradient(90deg, #a020f0, #00ffff, #ff00ff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #a020f0;
+}
+
+/* Hamburger Menü */
 .menu-toggle {
     font-size: 30px;
     cursor: pointer;
@@ -85,7 +94,7 @@ a {
 }
 
 /* --------------------
-   Hero Section / Parallax
+   Hero Section
 -------------------- */
 .hero {
     height: 100vh;
@@ -124,7 +133,7 @@ a {
 .hero-content {
     position: relative;
     z-index: 1;
-    margin-bottom: 100px; /* Hero-Text weiter nach unten */
+    margin-bottom: 120px; /* Hero Text weiter runter */
 }
 
 .hero h1 {
@@ -138,19 +147,6 @@ a {
     font-size: 28px;
 }
 
-.prefix {
-    font-family: monospace;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-/* Glow Effekte */
-.cyan { color: #00ffff; }
-.purple { color: #a020f0; }
-.glow { text-shadow: 0 0 10px #00ffff; }
-.glow-strong { text-shadow: 0 0 15px #a020f0; }
-
-/* Server Box */
 .server-box {
     margin-top: 20px;
     background: #141418;
@@ -176,7 +172,6 @@ a {
     background: #00aaff;
 }
 
-/* Scroll Down Pfeil */
 .scroll-down {
     margin-top: 40px;
     font-size: 30px;
@@ -188,7 +183,6 @@ a {
     50% { transform: translateY(15px); }
 }
 
-/* FadeIn Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -263,8 +257,8 @@ a {
 }
 
 /* Ränge */
-.rank.owner { color: darkred; font-weight: bold; }
-.rank.admin { color: darkred; font-weight: bold; }
+.rank.owner { color: #8b0000; font-weight: bold; }
+.rank.admin { color: #8b0000; font-weight: bold; }
 .rank.dev { color: #00ffff; font-weight: bold; }
 .rank.mod { color: #ff5555; font-weight: bold; }
 .rank.support { color: #ffff55; font-weight: bold; }
@@ -314,26 +308,7 @@ footer {
     font-size: 14px;
 }
 
-/* News / Events / Ränge */
-.news-list, .events-list {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.news-item, .event-item {
-    background: #141418;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-.news-item:hover, .event-item:hover {
-    box-shadow: 0 5px 15px rgba(0,255,255,0.3);
-}
-
-/* Gradient Titel (Ränge) */
+/* Gradient Titel */
 .gradient-title {
     background: linear-gradient(90deg, #a020f0, #00ffff);
     -webkit-background-clip: text;
