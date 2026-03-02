@@ -3,74 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <title>HomieCraft SMP - Ränge</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
 <style>
 html { scroll-behavior: smooth; }
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    overflow-x: hidden;
-    position: relative;
     background-color: #0f0f0f;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Minecraft Block Pattern */
+/* ===== Subtile Minecraft-Blöcke im Hintergrund ===== */
 #block-pattern {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: -3;
     background-image:
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
+      repeating-linear-gradient(0deg, #222 0 20px, #1a1a1a 20px 40px),
+      repeating-linear-gradient(90deg, #222 0 20px, #1a1a1a 20px 40px);
+    opacity: 0.05;
     pointer-events: none;
 }
 
-/* Beweglicher Nebel */
+/* ===== Beweglicher Nebel ===== */
 #fog {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: -2;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.02), transparent 70%);
-    animation: fogMove 60s linear infinite;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%);
+    animation: fogMove 80s linear infinite;
 }
-
 @keyframes fogMove {
     0% { background-position: 0 0; }
     50% { background-position: 200px 100px; }
     100% { background-position: 0 0; }
 }
 
-/* Partikel */
-.particle {
+/* ===== Partikel nur im Hintergrund ===== */
+#particles {
     position: fixed;
-    background: rgba(255,204,0,0.2);
-    border-radius: 50%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
     pointer-events: none;
+}
+.particle {
+    position: absolute;
+    border-radius: 50%;
     animation-name: float, sway;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-
 @keyframes float {
     from { transform: translateY(100vh); }
     to { transform: translateY(-10vh); }
 }
 @keyframes sway {
-    0%, 100% { transform: translateX(0px); }
+    0%,100% { transform: translateX(0px); }
     50% { transform: translateX(15px); }
 }
 
-/* Container & Layout */
+/* ===== Container & Layout ===== */
 .container { max-width: 1200px; margin: auto; padding: 20px; }
-h1 { text-align: center; font-size: 3em; color: #ffcc00; }
+h1 { text-align: center; font-size: 3em; color: #ffcc00; margin-top:40px; }
 
-/* Ränge */
+/* ===== Ränge ===== */
 .rank-overview {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
     margin: 60px 0; perspective: 1000px;
@@ -80,6 +80,8 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; }
     font-weight: bold; text-decoration: none;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     transform-style: preserve-3d;
+    position: relative;
+    z-index: 1;
 }
 .rank-card:hover {
     transform: rotateX(8deg) rotateY(-8deg) scale(1.1);
@@ -88,10 +90,12 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; }
 .rank-detail {
     background: #1c1c1c; padding: 40px; margin: 40px auto; border-radius: 15px;
     max-width: 750px; transition: 0.4s;
+    position: relative; z-index:1;
 }
 .rank-detail:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
 .rank-name { font-family: 'Press Start 2P', cursive; font-size: 1.3em; margin-bottom: 20px; }
 .rank-desc { line-height: 1.6; color: #dddddd; }
+
 .spieler { color: #aaaaaa; }
 .premium { color: #ffaa00; }
 .supreme { color: #3366ff; }
@@ -104,27 +108,41 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; }
 .owner { color: #ff0000; }
 
 /* Premium & VIP Neon */
-.rank-card.premium, .rank-card.vip {
-    box-shadow: 0 0 15px rgba(255,170,0,0.5);
-}
+.rank-card.premium, .rank-card.vip { box-shadow: 0 0 15px rgba(255,170,0,0.5);}
 .rank-card.premium:hover {
     transform: rotateX(10deg) rotateY(-10deg) scale(1.15);
-    box-shadow: 0 0 30px #ffaa00, 0 0 60px #ffaa00, 0 0 90px #ffaa00;
+    box-shadow: 0 0 30px #ffaa00,0 0 60px #ffaa00,0 0 90px #ffaa00;
 }
 .rank-card.vip:hover {
     transform: rotateX(10deg) rotateY(-10deg) scale(1.15);
-    box-shadow: 0 0 30px #aa00aa, 0 0 60px #aa00aa, 0 0 90px #aa00aa;
+    box-shadow: 0 0 30px #aa00aa,0 0 60px #aa00aa,0 0 90px #aa00aa;
 }
 
 /* Features */
 .features { text-align: center; margin: 80px 0; }
-.feature-box { display: inline-block; background: #1c1c1c; padding: 25px; margin: 15px; border-radius: 12px; width: 250px; transition: 0.3s; }
+.feature-box { display: inline-block; background: #1c1c1c; padding: 25px; margin: 15px; border-radius: 12px; width: 250px; transition: 0.3s; position: relative; z-index:1;}
 .feature-box:hover { transform: translateY(-10px); box-shadow: 0 0 20px #ffcc00; }
 
 /* Why HomieCraft */
-.why-section { position: relative; margin-top: 100px; padding: 60px 20px; background-color: #1a1a1a; border-radius: 20px; text-align: center; overflow: hidden; }
+.why-section { position: relative; margin-top: 100px; padding: 60px 20px; background-color: #1a1a1a; border-radius: 20px; text-align: center; overflow: hidden; z-index:1; }
 .why-section h2 { font-size: 2.5em; margin-bottom: 40px; color: #ffcc00; }
 
+/* ===== Nach Oben Button ===== */
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ffaa00;
+    color: #0f0f0f;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    box-shadow: 0 0 10px #ffaa00;
+}
+#topBtn:hover { background-color: #ffcc00; }
 </style>
 </head>
 <body>
@@ -150,7 +168,7 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; }
 <a href="#owner" class="rank-card owner">Owner</a>
 </div>
 
-<!-- Detailbereich alle Ränge -->
+<!-- Detailbereich -->
 <div id="spieler" class="rank-detail"><div class="rank-name spieler">Spieler</div><div class="rank-desc">Standard Survival Rechte<br>Bauen, Farmen, Handeln</div></div>
 <div id="premium" class="rank-detail"><div class="rank-name premium">Premium</div><div class="rank-desc">Mehr Homes<br>Kosmetische Extras<br>Chatfarbe</div></div>
 <div id="supreme" class="rank-detail"><div class="rank-name supreme">Supreme</div><div class="rank-desc">Event Zugang<br>Erweiterte Features</div></div>
@@ -178,10 +196,14 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; }
 
 </div>
 
+<!-- Nach oben Button -->
+<button onclick="topFunction()" id="topBtn" title="Nach oben">⬆</button>
+
 <script>
-/* Partikel über ganze Seite */
+// Partikel nur im Hintergrund, jetzt mit Minecraft-Farben
 const container = document.getElementById('particles');
-for(let i=0;i<60;i++){
+const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F']; // Gold, Purpur, Blau, Smaragd
+for(let i=0;i<80;i++){
     let p=document.createElement('div');
     p.className='particle';
     p.style.left=Math.random()*100+'vw';
@@ -189,10 +211,16 @@ for(let i=0;i<60;i++){
     let size = 3 + Math.random()*4;
     p.style.width = size + 'px';
     p.style.height = size + 'px';
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
     let duration = 15 + Math.random()*15;
     let swayDuration = 3 + Math.random()*4;
     p.style.animationDuration = duration+'s, '+swayDuration+'s';
     container.appendChild(p);
+}
+
+// Nach oben Button Funktion
+function topFunction() {
+    window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 
