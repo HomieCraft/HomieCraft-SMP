@@ -4,27 +4,44 @@
 <meta charset="UTF-8">
 <title>HomieCraft SMP - Ränge</title>
 
+<!-- Minecraft ähnliche Schrift -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+    background: #0f0f0f;
     color: white;
     overflow-x: hidden;
 }
 
-/* Glow Animation */
-@keyframes glow {
-    0% { text-shadow: 0 0 5px currentColor; }
-    50% { text-shadow: 0 0 20px currentColor; }
-    100% { text-shadow: 0 0 5px currentColor; }
+/* ===== Partikel Hintergrund ===== */
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
 }
 
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffcc00;
+    opacity: 0.5;
+    animation: float 15s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+/* ===== Layout ===== */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -35,7 +52,6 @@ h1 {
     text-align: center;
     font-size: 3em;
     color: #ffcc00;
-    animation: glow 2s infinite;
 }
 
 /* Übersicht */
@@ -49,34 +65,16 @@ h1 {
 
 .rank-card {
     background: #1c1c1c;
-    padding: 20px 40px;
-    border-radius: 15px;
-    font-size: 1.4em;
+    padding: 20px 35px;
+    border-radius: 12px;
     font-weight: bold;
     text-decoration: none;
     transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.rank-card::before {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
-
-.rank-card:hover::before {
-    width: 100%;
 }
 
 .rank-card:hover {
-    transform: translateY(-5px) scale(1.08);
-    box-shadow: 0 0 25px currentColor;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px currentColor;
 }
 
 /* Detailbereich */
@@ -86,196 +84,111 @@ h1 {
     margin: 40px auto;
     border-radius: 15px;
     max-width: 750px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s;
 }
 
-.rank-detail.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.rank-detail h3 {
-    font-size: 2em;
-    margin-top: 0;
+/* Minecraft Font nur für Namen */
+.rank-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.4em;
 }
 
 /* Farben */
 .spieler { color: #aaaaaa; }
-.premium { color: #ffaa00; animation: glow 2s infinite; }
+.premium { color: #ffaa00; }
 .supreme { color: #0000ff; }
-.vip { color: #aa00aa; animation: glow 2s infinite; }
+.vip { color: #aa00aa; }
 .creator { color: #ff55ff; }
-
 .support { color: #ffff55; }
 .mod { color: #ff5555; }
 .dev { color: #55ffff; }
 .admin { color: #aa0000; }
-.owner { color: #ff0000; animation: glow 1.5s infinite; }
+.owner { color: #ff0000; }
 
-.rank-desc {
-    margin-top: 20px;
-    line-height: 1.7;
-    color: #dddddd;
+/* Extra Section */
+.features {
+    text-align: center;
+    margin: 80px 0;
 }
 
-/* Back to top Button */
-#topBtn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #ffcc00;
-    color: black;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    display: none;
+.feature-box {
+    display: inline-block;
+    background: #1c1c1c;
+    padding: 25px;
+    margin: 15px;
+    border-radius: 12px;
+    width: 250px;
     transition: 0.3s;
 }
 
-#topBtn:hover {
-    transform: scale(1.1);
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #ffcc00;
 }
 </style>
 </head>
 
 <body>
 
+<div id="particles"></div>
+
 <div class="container">
 
 <h1>🏆 HomieCraft SMP – Ränge</h1>
 
 <div class="rank-overview">
-<a href="#spieler" class="rank-card spieler">Spieler</a>
 <a href="#premium" class="rank-card premium">Premium</a>
-<a href="#supreme" class="rank-card supreme">Supreme</a>
 <a href="#vip" class="rank-card vip">VIP</a>
-<a href="#creator" class="rank-card creator">Creator</a>
-<a href="#support" class="rank-card support">Support</a>
-<a href="#mod" class="rank-card mod">Moderator</a>
-<a href="#dev" class="rank-card dev">Developer</a>
-<a href="#admin" class="rank-card admin">Admin</a>
 <a href="#owner" class="rank-card owner">Owner</a>
 </div>
 
-<!-- Detailbereiche -->
-
-<div id="spieler" class="rank-detail">
-<h3 class="spieler">Spieler</h3>
-<div class="rank-desc">
-Standard-Survival Rechte<br>
-Bauen, Farmen, Handeln
-</div>
-</div>
-
 <div id="premium" class="rank-detail">
-<h3 class="premium">Premium</h3>
-<div class="rank-desc">
-Mehr Homes<br>
-Kosmetische Vorteile<br>
-Exklusive Chatfarbe
-</div>
-</div>
-
-<div id="supreme" class="rank-detail">
-<h3 class="supreme">Supreme</h3>
-<div class="rank-desc">
-Event-Zugang<br>
-Mehr Features<br>
-Erweiterte Extras
-</div>
+<div class="rank-name premium">Premium</div>
+<p>Mehr Homes<br>Kosmetische Extras<br>Besondere Chatfarbe</p>
 </div>
 
 <div id="vip" class="rank-detail">
-<h3 class="vip">VIP</h3>
-<div class="rank-desc">
-Exklusive Vorteile<br>
-Spezielle Rechte
-</div>
-</div>
-
-<div id="creator" class="rank-detail">
-<h3 class="creator">Creator</h3>
-<div class="rank-desc">
-Community Content<br>
-Server Promotion
-</div>
-</div>
-
-<div id="support" class="rank-detail">
-<h3 class="support">Supporter</h3>
-<div class="rank-desc">
-Hilft Spielern<br>
-Support & Fragen
-</div>
-</div>
-
-<div id="mod" class="rank-detail">
-<h3 class="mod">Moderator</h3>
-<div class="rank-desc">
-Regeln durchsetzen<br>
-Chat überwachen
-</div>
-</div>
-
-<div id="dev" class="rank-detail">
-<h3 class="dev">Developer</h3>
-<div class="rank-desc">
-Plugins verwalten<br>
-Technische Aufgaben
-</div>
-</div>
-
-<div id="admin" class="rank-detail">
-<h3 class="admin">Administrator</h3>
-<div class="rank-desc">
-Serverleitung<br>
-Teamkoordination
-</div>
+<div class="rank-name vip">VIP</div>
+<p>Exklusive Vorteile<br>Events<br>Spezialrechte</p>
 </div>
 
 <div id="owner" class="rank-detail">
-<h3 class="owner">OWNER</h3>
-<div class="rank-desc">
-Voller Zugriff auf alles
+<div class="rank-name owner">OWNER</div>
+<p>Voller Zugriff<br>Projektleitung</p>
 </div>
+
+<!-- Neue große Feature Section -->
+<div class="features">
+<h2>🌍 Warum HomieCraft?</h2>
+
+<div class="feature-box">
+<h3>⚔ Aktive Community</h3>
+<p>Freundliche Spieler & Team</p>
+</div>
+
+<div class="feature-box">
+<h3>🎉 Regelmäßige Events</h3>
+<p>Turniere & Spezial-Events</p>
+</div>
+
+<div class="feature-box">
+<h3>🛡 Fair Play</h3>
+<p>Kein Pay2Win</p>
 </div>
 
 </div>
 
-<button onclick="scrollToTop()" id="topBtn">⬆</button>
+</div>
 
 <script>
-const details = document.querySelectorAll('.rank-detail');
+/* Partikel generieren */
+const container = document.getElementById("particles");
 
-function reveal() {
-    details.forEach(detail => {
-        const windowHeight = window.innerHeight;
-        const elementTop = detail.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-            detail.classList.add("show");
-        }
-    });
-}
-
-window.addEventListener("scroll", reveal);
-reveal();
-
-const topBtn = document.getElementById("topBtn");
-
-window.onscroll = function() {
-    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+for (let i = 0; i < 40; i++) {
+    let particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.animationDuration = (10 + Math.random() * 10) + "s";
+    container.appendChild(particle);
 }
 </script>
 
