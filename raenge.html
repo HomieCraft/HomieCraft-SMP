@@ -2,9 +2,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
     background: #0f0f0f;
-    color: white;
+    color: #ffffff; /* weißer Text */
     font-family: Arial, sans-serif;
     text-align: center;
 }
@@ -19,39 +19,44 @@ body {
 
 h1 {
     margin-top: 20px;
-    font-size: 2.5em;
+    font-size: 3em; /* größer */
+    color: #ffcc00; /* auffällige Farbe */
+    text-shadow: 0 0 10px #ffcc00;
 }
 
 .section {
     margin-top: 50px;
     width: 90%;
-    max-width: 1000px; /* große Bildschirme */
+    max-width: 1000px;
 }
 
 .rank {
     background: #1c1c1c;
     margin: 15px auto;
-    padding: 20px;
+    padding: 25px; /* größer */
     border-radius: 10px;
     transition: 0.3s;
-    font-size: 1.5em;
+    font-size: 2em; /* größer */
+    font-weight: bold;
+    color: white;
 }
 
 .rank:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px #ffffff;
 }
 
 /* Spieler Ränge */
 .spieler { color: #aaaaaa; }
-.premium { color: #ffaa00; font-weight: bold; }
-.supreme { color: #0000aa; font-weight: bold; }
-.vip { color: #aa00aa; font-weight: bold; }
-.creator { color: #ff55ff; font-weight: bold; }
+.premium { color: #ffaa00; }
+.supreme { color: #0000aa; }
+.vip { color: #aa00aa; }
+.creator { color: #ff55ff; }
 
 /* Staff Ränge */
 .support { color: #ffff55; }
-.mod { color: #ff5555; font-weight: bold; }
-.dev { color: #55ffff; font-weight: bold; }
-.admin { color: #aa0000; font-weight: bold; }
-.owner { color: #aa0000; font-weight: bold; text-shadow: 0 0 10px red; }
+.mod { color: #ff5555; }
+.dev { color: #55ffff; }
+.admin { color: #aa0000; }
+.owner { color: #aa0000; text-shadow: 0 0 15px red; }
 </style>
