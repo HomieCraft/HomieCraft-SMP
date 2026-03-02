@@ -1,67 +1,62 @@
 // --------------------
-// Side Menu Toggle
+// Hamburger Menü Toggle
 // --------------------
-const sideMenu = document.getElementById('sideMenu');
-
 function toggleMenu() {
-    if(sideMenu.style.right === "0px") {
-        sideMenu.style.right = "-250px";
+    const menu = document.getElementById('sideMenu');
+    if (menu.style.right === '0px') {
+        menu.style.right = '-260px';
     } else {
-        sideMenu.style.right = "0px";
+        menu.style.right = '0px';
     }
 }
 
 // --------------------
 // Scroll-to-top Button
 // --------------------
-const topBtn = document.getElementById('topBtn');
+const topBtn = document.getElementById("topBtn");
 
+// Zeige Button wenn gescrollt
 window.onscroll = function() {
-    // Button sichtbar ab 200px scroll
-    if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+    scrollFunction();
+    revealSections();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         topBtn.style.display = "block";
     } else {
         topBtn.style.display = "none";
     }
-};
+}
 
+// Scroll-to-top Funktion
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // --------------------
-// Copy IP Button
+// Sections Fade-in beim Scrollen
 // --------------------
-function copyIP() {
-    const ipText = document.querySelector('.ip').textContent;
-    navigator.clipboard.writeText(ipText).then(() => {
-        alert(`IP "${ipText}" wurde kopiert!`);
+function revealSections() {
+    const sections = document.querySelectorAll('.section');
+    const windowHeight = window.innerHeight;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < windowHeight - 100) {
+            section.classList.add('visible');
+        }
     });
 }
 
 // --------------------
-// Scroll Fade-in Animation
+// IP Kopieren Button
 // --------------------
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight / 5 * 4;
-
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-
-        if(sectionTop < triggerBottom) {
-            section.classList.add('visible');
-        }
+function copyIP() {
+    const ipText = document.querySelector('.server-box .ip').textContent;
+    navigator.clipboard.writeText(ipText).then(() => {
+        alert(`IP ${ipText} wurde kopiert!`);
+    }).catch(err => {
+        alert('Kopieren fehlgeschlagen!');
     });
-});
-
-// --------------------
-// Optional: Close Side Menu on link click
-// --------------------
-const sideLinks = document.querySelectorAll('.side-menu a');
-sideLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        sideMenu.style.right = "-250px";
-    });
-});
+}
