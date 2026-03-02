@@ -2,11 +2,11 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>HomieCraft SMP - Server Infos</title>
+<title>HomieCraft SMP - Infos</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 html { scroll-behavior: smooth; }
-body { margin:0; font-family: Arial, sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
+body { margin:0; font-family: 'Arial', sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
 
 /* Hintergrund Blöcke + Nebel + Partikel */
 #block-pattern { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background-image: repeating-linear-gradient(0deg,#222 0 20px,#1a1a1a 20px 40px), repeating-linear-gradient(90deg,#222 0 20px,#1a1a1a 20px 40px); opacity:0.05; pointer-events:none; }
@@ -19,17 +19,27 @@ body { margin:0; font-family: Arial, sans-serif; color:white; background-color:#
 
 /* Container */
 .container { max-width:1200px; margin:auto; padding:20px; }
-h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
+h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; text-shadow:0 0 15px #ffcc00; }
+h2 { font-size:2em; margin-bottom:15px; color:#ffaa00; text-shadow:0 0 8px #ffaa00; }
+
+/* Inhaltsverzeichnis */
+#toc { background:#1c1c1c; padding:20px; border-radius:12px; margin-bottom:30px; }
+#toc ul { list-style:none; padding-left:0; }
+#toc li { margin:8px 0; }
+#toc a { color:#ffaa00; text-decoration:none; font-weight:bold; }
+#toc a:hover { text-decoration:underline; }
 
 /* Karten Layout */
-.card { background:#1c1c1c; padding:30px; margin:30px 0; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s; cursor:pointer; }
+.card { background:#1c1c1c; padding:30px; margin:30px 0; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,255,0,0.5); }
-.card h2 { margin-top:0; color:#ffaa00; text-shadow:0 0 8px #ffaa00; font-size:1.8em; }
-.card p, .card ul, .card ol, .card table { margin-top:10px; color:#ddd; }
-.card table { width:100%; border-collapse:collapse; }
+.card h3 { margin-top:0; color:#ffaa00; text-shadow:0 0 8px #ffaa00; font-size:1.5em; }
+
+/* Tabellen & Listen */
+.card table { width:100%; border-collapse:collapse; margin-top:10px; }
 .card th, .card td { border:1px solid #444; padding:10px; text-align:left; }
 .card th { background:#2a2a2a; }
 .card td { background:#1c1c1c; }
+.card ul, .card ol { margin-top:10px; margin-left:20px; color:#ddd; }
 
 /* Collapsible Content */
 .collapsible { background:#2a2a2a; border:none; outline:none; width:100%; text-align:left; padding:10px; font-size:1em; cursor:pointer; border-radius:8px; margin-top:5px; }
@@ -40,6 +50,7 @@ h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
 /* Nach oben Button */
 #topBtn { position: fixed; bottom:30px; right:30px; background-color:#ffaa00; color:#0f0f0f; border:none; padding:15px; border-radius:50%; cursor:pointer; font-size:18px; z-index:10; box-shadow:0 0 10px #ffaa00; }
 #topBtn:hover { background-color:#ffcc00; }
+
 </style>
 </head>
 <body>
@@ -49,26 +60,35 @@ h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
 <div id="particles"></div>
 
 <div class="container">
-<h1>🏆 HomieCraft SMP – Infos & Tipps</h1>
+<h1>🏆 HomieCraft SMP – Server Infos</h1>
 
-<!-- Infos Karte -->
-<div class="card">
-<h2>📝 Server Infos</h2>
-<p><b>Server-IP:</b> Eierfratze0815.aternos.me</p>
-<p><b>Version:</b> 1.20.1 - 1.21.11</p>
-<p>Willkommen auf <b>HomieCraft SMP</b> – deinem Minecraft Survival Multiplayer Server!</p>
+<!-- Inhaltsverzeichnis -->
+<div id="toc">
+<h2>📌 Inhaltsverzeichnis</h2>
 <ul>
-<li>Baue dein eigenes Haus oder Stadtviertel</li>
-<li>Erkunde die Welt und finde seltene Ressourcen</li>
-<li>Nimm an PvP- oder Bau-Events teil</li>
-<li>Nutze Wirtschaftssysteme oder Shops</li>
-<li>Spiele zusammen mit Freunden im Team</li>
-<li>Zeige deine Kreativität auf Community-Projekten</li>
+<li><a href="#infos">Infos</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#faq">Hilfe / FAQ</a></li>
+<li><a href="#tipps">Tipps für neue Spieler</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#news">News</a></li>
 </ul>
 </div>
 
-<!-- Commands Karte -->
-<div class="card">
+<!-- Infos -->
+<div class="card" id="infos">
+<h2>📝 Server Infos</h2>
+<ul>
+<li><b>Server-IP:</b> Eierfratze0815.aternos.me</li>
+<li><b>Version:</b> 1.20.1 - 1.21.11</li>
+<li>Willkommen auf <b>HomieCraft SMP</b> – deinem Survival-Minecraft-Server!</li>
+<li>Baue, entdecke, kämpfe, handel und hab Spaß mit Freunden.</li>
+<li>Community-Projekte, PvP-Events, Wirtschaftssysteme und vieles mehr.</li>
+</ul>
+</div>
+
+<!-- Commands -->
+<div class="card" id="commands">
 <h2>⌨ Commands</h2>
 <button class="collapsible">Befehle anzeigen / ausblenden</button>
 <div class="content">
@@ -82,32 +102,32 @@ h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
 </div>
 </div>
 
-<!-- FAQ Karte -->
-<div class="card">
+<!-- FAQ -->
+<div class="card" id="faq">
 <h2>🛠 Hilfe / FAQ</h2>
 <button class="collapsible">Tipps anzeigen / ausblenden</button>
 <div class="content">
 <ol>
 <li>Wie erstelle ich ein Haus? → Nutze /sethome und baue in deiner Zone.</li>
-<li>Wie trete ich Events bei? → Prüfe die Event-Announcements im News-Ordner.</li>
+<li>Wie trete ich Events bei? → Prüfe die Event-Ankündigungen im News-Bereich.</li>
 <li>Probleme mit Plugins? → Kontaktiere ein Teammitglied über /bugreport.</li>
 </ol>
 </div>
 </div>
 
 <!-- Tipps -->
-<div class="card">
+<div class="card" id="tipps">
 <h2>💡 Anfänger-Tipps</h2>
 <ul>
-<li>Erkunde zuerst die Spawn-Region und lerne die Regeln.</li>
+<li>Erkunde zuerst den Spawn und lerne die Serverregeln.</li>
 <li>Tritt einem Team oder Freundesgruppe bei, um schneller Ressourcen zu sammeln.</li>
-<li>Schau regelmäßig in die News, um keine Events zu verpassen.</li>
-<li>Sei kreativ – baue, handele und hab Spaß!</li>
+<li>Schau regelmäßig in den News-Bereich, um keine Events zu verpassen.</li>
+<li>Sei kreativ – baue, handele, kämpfe und hab Spaß!</li>
 </ul>
 </div>
 
 <!-- Team -->
-<div class="card">
+<div class="card" id="team">
 <h2>🛡 Team</h2>
 <table>
 <tr><th>Name</th><th>Rolle</th><th>Kontakt</th></tr>
@@ -120,7 +140,7 @@ h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
 </div>
 
 <!-- News -->
-<div class="card">
+<div class="card" id="news">
 <h2>📰 News</h2>
 <p>Bleibe auf dem Laufenden: <a href="news.md" style="color:#ffaa00;">News</a></p>
 <p>Hier findest du Updates, Events und Ankündigungen für den Server.</p>
@@ -128,6 +148,7 @@ h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
 
 </div>
 
+<!-- Nach oben Button -->
 <button onclick="topFunction()" id="topBtn" title="Nach oben">⬆</button>
 
 <script>
