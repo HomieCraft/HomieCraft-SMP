@@ -6,143 +6,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 html { scroll-behavior: smooth; }
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    background-color: #0f0f0f;
-    position: relative;
-    overflow-x: hidden;
-}
+body { margin:0; font-family: 'Arial', sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
 
-/* ===== Subtile Minecraft-Blöcke im Hintergrund ===== */
-#block-pattern {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -3;
-    background-image:
-      repeating-linear-gradient(0deg, #222 0 20px, #1a1a1a 20px 40px),
-      repeating-linear-gradient(90deg, #222 0 20px, #1a1a1a 20px 40px);
-    opacity: 0.05;
-    pointer-events: none;
-}
+/* Hintergrund Blöcke + Nebel + Partikel */
+#block-pattern { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background-image: repeating-linear-gradient(0deg,#222 0 20px,#1a1a1a 20px 40px), repeating-linear-gradient(90deg,#222 0 20px,#1a1a1a 20px 40px); opacity:0.05; pointer-events:none; }
+#fog { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%); animation: fogMove 80s linear infinite; }
+@keyframes fogMove { 0% { background-position:0 0;} 50%{background-position:200px 100px;} 100%{background-position:0 0;} }
+#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+.particle { position:absolute; border-radius:50%; animation-name: float,sway; animation-iteration-count: infinite; animation-timing-function: linear; }
+@keyframes float { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
+@keyframes sway { 0%,100% { transform: translateX(0px); } 50% { transform: translateX(15px); } }
 
-/* ===== Beweglicher Nebel ===== */
-#fog {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -2;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%);
-    animation: fogMove 80s linear infinite;
-}
-@keyframes fogMove {
-    0% { background-position: 0 0; }
-    50% { background-position: 200px 100px; }
-    100% { background-position: 0 0; }
-}
+/* Container */
+.container { max-width:1200px; margin:auto; padding:20px; }
+h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; text-shadow:0 0 15px #ffcc00; }
 
-/* ===== Partikel nur im Hintergrund ===== */
-#particles {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-    pointer-events: none;
+/* Home Button oben links */
+#homeBtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #ffaa00;
+  color: #0f0f0f;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 0 10px #ffaa00;
+  transition: 0.3s;
 }
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    animation-name: float, sway;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-@keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
-}
-@keyframes sway {
-    0%,100% { transform: translateX(0px); }
-    50% { transform: translateX(15px); }
-}
+#homeBtn:hover { background-color: #ffcc00; }
 
-/* ===== Container & Layout ===== */
-.container { max-width: 1200px; margin: auto; padding: 20px; }
-h1 { text-align: center; font-size: 3em; color: #ffcc00; margin-top:40px; }
+/* Ränge */
+.rank { background-color: #1c1c1c; padding:25px; margin:15px auto; border-radius:12px; font-size:2em; font-weight:bold; width:90%; max-width:600px; text-align:center; transition:0.3s; cursor:pointer; perspective:800px; position: relative; }
+.rank:hover { transform: scale(1.05) rotateX(3deg) rotateY(3deg); box-shadow: 0 0 20px #ffffff; }
+.rank-desc { font-size:0.9em; color:#dddddd; margin-top:10px; text-align:left; }
 
-/* ===== Ränge ===== */
-.rank-overview {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
-    margin: 60px 0; perspective: 1000px;
-}
-.rank-card {
-    background: #1c1c1c; padding: 25px 40px; border-radius: 15px;
-    font-weight: bold; text-decoration: none;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    transform-style: preserve-3d;
-    position: relative;
-    z-index: 1;
-}
-.rank-card:hover {
-    transform: rotateX(8deg) rotateY(-8deg) scale(1.1);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-.rank-detail {
-    background: #1c1c1c; padding: 40px; margin: 40px auto; border-radius: 15px;
-    max-width: 750px; transition: 0.4s;
-    position: relative; z-index:1;
-}
-.rank-detail:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
-.rank-name { font-family: 'Press Start 2P', cursive; font-size: 1.3em; margin-bottom: 20px; }
-.rank-desc { line-height: 1.6; color: #dddddd; }
-
+/* Spieler-Ränge */
 .spieler { color: #aaaaaa; }
-.premium { color: #ffaa00; }
-.supreme { color: #3366ff; }
-.vip { color: #aa00aa; }
-.creator { color: #ff55ff; }
-.support { color: #ffff55; }
-.mod { color: #ff5555; }
-.dev { color: #55ffff; }
-.admin { color: #aa0000; }
-.owner { color: #ff0000; }
+.premium { color: #ffaa00; text-shadow: 0 0 10px #ffaa00; }
+.supreme { color: #0000aa; text-shadow: 0 0 8px #0000aa; }
+.vip { color: #aa00aa; text-shadow: 0 0 8px #aa00aa; }
+.creator { color: #ff55ff; text-shadow: 0 0 8px #ff55ff; }
 
-/* Premium & VIP Neon */
-.rank-card.premium, .rank-card.vip { box-shadow: 0 0 15px rgba(255,170,0,0.5);}
-.rank-card.premium:hover {
-    transform: rotateX(10deg) rotateY(-10deg) scale(1.15);
-    box-shadow: 0 0 30px #ffaa00,0 0 60px #ffaa00,0 0 90px #ffaa00;
-}
-.rank-card.vip:hover {
-    transform: rotateX(10deg) rotateY(-10deg) scale(1.15);
-    box-shadow: 0 0 30px #aa00aa,0 0 60px #aa00aa,0 0 90px #aa00aa;
-}
+/* Staff-Ränge */
+.support { color: #ffff55; text-shadow: 0 0 5px #ffff55; }
+.mod { color: #ff5555; text-shadow: 0 0 8px #ff5555; }
+.dev { color: #55ffff; text-shadow: 0 0 8px #55ffff; }
+.admin { color: #aa0000; text-shadow: 0 0 10px #aa0000; }
+.owner { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
 
-/* Features */
-.features { text-align: center; margin: 80px 0; }
-.feature-box { display: inline-block; background: #1c1c1c; padding: 25px; margin: 15px; border-radius: 12px; width: 250px; transition: 0.3s; position: relative; z-index:1;}
-.feature-box:hover { transform: translateY(-10px); box-shadow: 0 0 20px #ffcc00; }
-
-/* Why HomieCraft */
-.why-section { position: relative; margin-top: 100px; padding: 60px 20px; background-color: #1a1a1a; border-radius: 20px; text-align: center; overflow: hidden; z-index:1; }
-.why-section h2 { font-size: 2.5em; margin-bottom: 40px; color: #ffcc00; }
-
-/* ===== Nach Oben Button ===== */
-#topBtn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #ffaa00;
-    color: #0f0f0f;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
-    box-shadow: 0 0 10px #ffaa00;
-}
-#topBtn:hover { background-color: #ffcc00; }
 </style>
 </head>
 <body>
@@ -151,58 +65,92 @@ h1 { text-align: center; font-size: 3em; color: #ffcc00; margin-top:40px; }
 <div id="fog"></div>
 <div id="particles"></div>
 
-<div class="container">
+<!-- Home Button -->
+<a href="index.html" id="homeBtn" title="Zurück zur Startseite">🏠 Home</a>
 
+<div class="container">
 <h1>🏆 HomieCraft SMP – Ränge</h1>
 
-<div class="rank-overview">
-<a href="#spieler" class="rank-card spieler">Spieler</a>
-<a href="#premium" class="rank-card premium">Premium</a>
-<a href="#supreme" class="rank-card supreme">Supreme</a>
-<a href="#vip" class="rank-card vip">VIP</a>
-<a href="#creator" class="rank-card creator">Creator</a>
-<a href="#support" class="rank-card support">Supporter</a>
-<a href="#mod" class="rank-card mod">Moderator</a>
-<a href="#dev" class="rank-card dev">Developer</a>
-<a href="#admin" class="rank-card admin">Administrator</a>
-<a href="#owner" class="rank-card owner">Owner</a>
+<h2>🎮 Spieler-Ränge</h2>
+<div class="rank spieler">Spieler
+  <div class="rank-desc">
+    - Standard-Survival Rechte<br>
+    - Bauen, Farmen, Handeln<br>
+    - Kein Zugriff auf administrative Befehle
+  </div>
+</div>
+<div class="rank premium">Premium
+  <div class="rank-desc">
+    - Zusätzliche Homes<br>
+    - Kleine kosmetische Vorteile<br>
+    - Besondere Chatfarbe
+  </div>
+</div>
+<div class="rank supreme">Supreme
+  <div class="rank-desc">
+    - Mehr Homes<br>
+    - Teilnahme an Events<br>
+    - Erweiterte Features und Extras
+  </div>
+</div>
+<div class="rank vip">VIP
+  <div class="rank-desc">
+    - Exklusive Extras<br>
+    - Besondere Rechte<br>
+    - Spezieller Rang im Chat
+  </div>
+</div>
+<div class="rank creator">Creator
+  <div class="rank-desc">
+    - Content für den Server erstellen<br>
+    - Teilnahme an Community-Projekten<br>
+    - Promotion-Unterstützung
+  </div>
 </div>
 
-<!-- Detailbereich -->
-<div id="spieler" class="rank-detail"><div class="rank-name spieler">Spieler</div><div class="rank-desc">Standard Survival Rechte<br>Bauen, Farmen, Handeln</div></div>
-<div id="premium" class="rank-detail"><div class="rank-name premium">Premium</div><div class="rank-desc">Mehr Homes<br>Kosmetische Extras<br>Chatfarbe</div></div>
-<div id="supreme" class="rank-detail"><div class="rank-name supreme">Supreme</div><div class="rank-desc">Event Zugang<br>Erweiterte Features</div></div>
-<div id="vip" class="rank-detail"><div class="rank-name vip">VIP</div><div class="rank-desc">Exklusive Vorteile<br>Spezialrechte</div></div>
-<div id="creator" class="rank-detail"><div class="rank-name creator">Creator</div><div class="rank-desc">Server Content<br>Community Projekte</div></div>
-<div id="support" class="rank-detail"><div class="rank-name support">Supporter</div><div class="rank-desc">Hilft Spielern<br>Support & Fragen</div></div>
-<div id="mod" class="rank-detail"><div class="rank-name mod">Moderator</div><div class="rank-desc">Regeln durchsetzen<br>Chat überwachen</div></div>
-<div id="dev" class="rank-detail"><div class="rank-name dev">Developer</div><div class="rank-desc">Plugins verwalten<br>Technik & Bugs</div></div>
-<div id="admin" class="rank-detail"><div class="rank-name admin">Administrator</div><div class="rank-desc">Serververwaltung<br>Teamkoordination</div></div>
-<div id="owner" class="rank-detail"><div class="rank-name owner">OWNER</div><div class="rank-desc">Voller Zugriff<br>Projektleitung</div></div>
-
-<!-- Features -->
-<div class="features">
-<h2>🌍 Warum HomieCraft?</h2>
-<div class="feature-box"><h3>⚔ Aktive Community</h3><p>Freundliche Spieler & Team</p></div>
-<div class="feature-box"><h3>🎉 Regelmäßige Events</h3><p>Turniere & Spezial-Events</p></div>
-<div class="feature-box"><h3>🛡 Fair Play</h3><p>Kein Pay2Win</p></div>
+<h2>🛡 Server-Team</h2>
+<div class="rank support">Supporter
+  <div class="rank-desc">
+    - Spielern helfen<br>
+    - Fragen beantworten<br>
+    - Probleme weiterleiten
+  </div>
+</div>
+<div class="rank mod">Moderator
+  <div class="rank-desc">
+    - Chat überwachen<br>
+    - Regelverstöße ahnden<br>
+    - Spieler verwarnen
+  </div>
+</div>
+<div class="rank dev">Developer
+  <div class="rank-desc">
+    - Plugins verwalten<br>
+    - Bugs beheben<br>
+    - Technische Aufgaben
+  </div>
+</div>
+<div class="rank admin">Administrator
+  <div class="rank-desc">
+    - Serververwaltung<br>
+    - Teamkoordination<br>
+    - Wichtige Entscheidungen treffen
+  </div>
+</div>
+<div class="rank owner">OWNER
+  <div class="rank-desc">
+    - Voller Zugriff auf alles<br>
+    - Serverleitung<br>
+    - Projektorganisation
+  </div>
 </div>
 
-<!-- Why Section -->
-<div class="why-section">
-<h2>🌟 Warum HomieCraft?</h2>
-<p>Unsere Community, Events & Features machen uns besonders!</p>
 </div>
-
-</div>
-
-<!-- Nach oben Button -->
-<button onclick="topFunction()" id="topBtn" title="Nach oben">⬆</button>
 
 <script>
-// Partikel nur im Hintergrund, jetzt mit Minecraft-Farben
+// Partikel Minecraft-Farben
 const container = document.getElementById('particles');
-const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F']; // Gold, Purpur, Blau, Smaragd
+const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F'];
 for(let i=0;i<80;i++){
     let p=document.createElement('div');
     p.className='particle';
@@ -216,11 +164,6 @@ for(let i=0;i<80;i++){
     let swayDuration = 3 + Math.random()*4;
     p.style.animationDuration = duration+'s, '+swayDuration+'s';
     container.appendChild(p);
-}
-
-// Nach oben Button Funktion
-function topFunction() {
-    window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 
