@@ -119,6 +119,59 @@ h1 {
     line-height: 1.6;
     color: #dddddd;
 }
+
+/* ===== Feature Section ===== */
+.features {
+    text-align: center;
+    margin: 80px 0;
+}
+
+.feature-box {
+    display: inline-block;
+    background: #1c1c1c;
+    padding: 25px;
+    margin: 15px;
+    border-radius: 12px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #ffcc00;
+}
+
+/* ===== Warum HomieCraft Sektion ===== */
+.why-section {
+    position: relative;
+    margin-top: 100px;
+    padding: 60px 20px;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.why-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #ffcc00;
+}
+
+/* Partikel in Why Section */
+.why-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,204,0,0.2);
+    border-radius: 2px;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
 </style>
 </head>
 
@@ -143,89 +196,102 @@ h1 {
 </div>
 
 <!-- DETAILBEREICH -->
-
 <div id="spieler" class="rank-detail">
 <div class="rank-name spieler">Spieler</div>
-<div class="rank-desc">
-Standard Survival Rechte<br>
-Bauen, Farmen, Handeln
-</div>
+<div class="rank-desc">Standard Survival Rechte<br>Bauen, Farmen, Handeln</div>
 </div>
 
 <div id="premium" class="rank-detail">
 <div class="rank-name premium">Premium</div>
-<div class="rank-desc">
-Mehr Homes<br>
-Kosmetische Extras<br>
-Chatfarbe
-</div>
+<div class="rank-desc">Mehr Homes<br>Kosmetische Extras<br>Chatfarbe</div>
 </div>
 
 <div id="supreme" class="rank-detail">
 <div class="rank-name supreme">Supreme</div>
-<div class="rank-desc">
-Event Zugang<br>
-Erweiterte Features
-</div>
+<div class="rank-desc">Event Zugang<br>Erweiterte Features</div>
 </div>
 
 <div id="vip" class="rank-detail">
 <div class="rank-name vip">VIP</div>
-<div class="rank-desc">
-Exklusive Vorteile<br>
-Spezialrechte
-</div>
+<div class="rank-desc">Exklusive Vorteile<br>Spezialrechte</div>
 </div>
 
 <div id="creator" class="rank-detail">
 <div class="rank-name creator">Creator</div>
-<div class="rank-desc">
-Server Content<br>
-Community Projekte
-</div>
+<div class="rank-desc">Server Content<br>Community Projekte</div>
 </div>
 
 <div id="support" class="rank-detail">
 <div class="rank-name support">Supporter</div>
-<div class="rank-desc">
-Hilft Spielern<br>
-Support & Fragen
-</div>
+<div class="rank-desc">Hilft Spielern<br>Support & Fragen</div>
 </div>
 
 <div id="mod" class="rank-detail">
 <div class="rank-name mod">Moderator</div>
-<div class="rank-desc">
-Regeln durchsetzen<br>
-Chat überwachen
-</div>
+<div class="rank-desc">Regeln durchsetzen<br>Chat überwachen</div>
 </div>
 
 <div id="dev" class="rank-detail">
 <div class="rank-name dev">Developer</div>
-<div class="rank-desc">
-Plugins verwalten<br>
-Technik & Bugs
-</div>
+<div class="rank-desc">Plugins verwalten<br>Technik & Bugs</div>
 </div>
 
 <div id="admin" class="rank-detail">
 <div class="rank-name admin">Administrator</div>
-<div class="rank-desc">
-Serververwaltung<br>
-Teamkoordination
-</div>
+<div class="rank-desc">Serververwaltung<br>Teamkoordination</div>
 </div>
 
 <div id="owner" class="rank-detail">
 <div class="rank-name owner">OWNER</div>
-<div class="rank-desc">
-Voller Zugriff<br>
-Projektleitung
+<div class="rank-desc">Voller Zugriff<br>Projektleitung</div>
+</div>
+
+<!-- Bestehende Feature Section -->
+<div class="features">
+<h2>🌍 Warum HomieCraft?</h2>
+
+<div class="feature-box">
+<h3>⚔ Aktive Community</h3>
+<p>Freundliche Spieler & Team</p>
+</div>
+
+<div class="feature-box">
+<h3>🎉 Regelmäßige Events</h3>
+<p>Turniere & Spezial-Events</p>
+</div>
+
+<div class="feature-box">
+<h3>🛡 Fair Play</h3>
+<p>Kein Pay2Win</p>
 </div>
 </div>
 
+<!-- Neue „Warum HomieCraft“ am Ende mit Partikeln & Nebel -->
+<div class="why-section">
+<h2>🌟 Warum HomieCraft?</h2>
+<p>Unsere Community, Events & Features machen uns besonders!</p>
+
+<!-- Dezente Partikel -->
+<div id="why-particles"></div>
 </div>
+
+</div>
+
+<script>
+/* Partikel für Why Section */
+const whyContainer = document.getElementById('why-particles');
+
+for (let i=0; i<30; i++){
+    let p = document.createElement('div');
+    p.classList.add('why-particle');
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.top = Math.random()*100 + 'vh';
+    p.style.width = (3+Math.random()*4)+'px';
+    p.style.height = (3+Math.random()*4)+'px';
+    p.style.animationDuration = (15+Math.random()*10)+'s';
+    whyContainer.appendChild(p);
+}
+</script>
 
 </body>
 </html>
