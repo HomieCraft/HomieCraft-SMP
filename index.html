@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>HomieCraft SMP - Server Infos</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin:0; font-family: Arial, sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
+
+/* Hintergrund Blöcke + Nebel + Partikel */
+#block-pattern { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background-image: repeating-linear-gradient(0deg,#222 0 20px,#1a1a1a 20px 40px), repeating-linear-gradient(90deg,#222 0 20px,#1a1a1a 20px 40px); opacity:0.05; pointer-events:none; }
+#fog { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%); animation: fogMove 80s linear infinite; }
+@keyframes fogMove { 0% { background-position:0 0;} 50%{background-position:200px 100px;} 100%{background-position:0 0;} }
+#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+.particle { position:absolute; border-radius:50%; animation-name: float,sway; animation-iteration-count: infinite; animation-timing-function: linear; }
+@keyframes float { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
+@keyframes sway { 0%,100% { transform: translateX(0px); } 50% { transform: translateX(15px); } }
+
+/* Container */
+.container { max-width:1200px; margin:auto; padding:20px; }
+h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; }
+
+/* Karten Layout */
+.card { background:#1c1c1c; padding:30px; margin:30px 0; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s; cursor:pointer; }
+.card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,255,0,0.5); }
+.card h2 { margin-top:0; color:#ffaa00; text-shadow:0 0 8px #ffaa00; font-size:1.8em; }
+.card p, .card ul, .card ol, .card table { margin-top:10px; color:#ddd; }
+.card table { width:100%; border-collapse:collapse; }
+.card th, .card td { border:1px solid #444; padding:10px; text-align:left; }
+.card th { background:#2a2a2a; }
+.card td { background:#1c1c1c; }
+
+/* Collapsible Content */
+.collapsible { background:#2a2a2a; border:none; outline:none; width:100%; text-align:left; padding:10px; font-size:1em; cursor:pointer; border-radius:8px; margin-top:5px; }
+.collapsible:after { content:'\25BC'; float:right; }
+.active:after { content:'\25B2'; }
+.content { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+
+/* Nach oben Button */
+#topBtn { position: fixed; bottom:30px; right:30px; background-color:#ffaa00; color:#0f0f0f; border:none; padding:15px; border-radius:50%; cursor:pointer; font-size:18px; z-index:10; box-shadow:0 0 10px #ffaa00; }
+#topBtn:hover { background-color:#ffcc00; }
+</style>
+</head>
+<body>
+
+<div id="block-pattern"></div>
+<div id="fog"></div>
+<div id="particles"></div>
+
+<div class="container">
+<h1>🏆 HomieCraft SMP – Infos & Tipps</h1>
+
+<!-- Infos Karte -->
+<div class="card">
+<h2>📝 Server Infos</h2>
+<p><b>Server-IP:</b> Eierfratze0815.aternos.me</p>
+<p><b>Version:</b> 1.20.1 - 1.21.11</p>
+<p>Willkommen auf <b>HomieCraft SMP</b> – deinem Minecraft Survival Multiplayer Server!</p>
+<ul>
+<li>Baue dein eigenes Haus oder Stadtviertel</li>
+<li>Erkunde die Welt und finde seltene Ressourcen</li>
+<li>Nimm an PvP- oder Bau-Events teil</li>
+<li>Nutze Wirtschaftssysteme oder Shops</li>
+<li>Spiele zusammen mit Freunden im Team</li>
+<li>Zeige deine Kreativität auf Community-Projekten</li>
+</ul>
+</div>
+
+<!-- Commands Karte -->
+<div class="card">
+<h2>⌨ Commands</h2>
+<button class="collapsible">Befehle anzeigen / ausblenden</button>
+<div class="content">
+<table>
+<tr><th>Befehl</th><th>Beschreibung</th></tr>
+<tr><td>/spawn</td><td>Teleportiert dich zum Spawnpunkt</td></tr>
+<tr><td>/home</td><td>Teleportiert dich zu deinem eigenen Haus</td></tr>
+<tr><td>/tpa &lt;Spieler&gt;</td><td>Teleportiere dich zu einem Spieler</td></tr>
+<tr><td>/msg &lt;Spieler&gt; &lt;Nachricht&gt;</td><td>Sende private Nachrichten</td></tr>
+</table>
+</div>
+</div>
+
+<!-- FAQ Karte -->
+<div class="card">
+<h2>🛠 Hilfe / FAQ</h2>
+<button class="collapsible">Tipps anzeigen / ausblenden</button>
+<div class="content">
+<ol>
+<li>Wie erstelle ich ein Haus? → Nutze /sethome und baue in deiner Zone.</li>
+<li>Wie trete ich Events bei? → Prüfe die Event-Announcements im News-Ordner.</li>
+<li>Probleme mit Plugins? → Kontaktiere ein Teammitglied über /bugreport.</li>
+</ol>
+</div>
+</div>
+
+<!-- Tipps -->
+<div class="card">
+<h2>💡 Anfänger-Tipps</h2>
+<ul>
+<li>Erkunde zuerst die Spawn-Region und lerne die Regeln.</li>
+<li>Tritt einem Team oder Freundesgruppe bei, um schneller Ressourcen zu sammeln.</li>
+<li>Schau regelmäßig in die News, um keine Events zu verpassen.</li>
+<li>Sei kreativ – baue, handele und hab Spaß!</li>
+</ul>
+</div>
+
+<!-- Team -->
+<div class="card">
+<h2>🛡 Team</h2>
+<table>
+<tr><th>Name</th><th>Rolle</th><th>Kontakt</th></tr>
+<tr><td>LucaMaximal</td><td>Owner / Developer</td><td>/msg LucaMaximal</td></tr>
+<tr><td>Eierfratze0815</td><td>Owner</td><td>/msg Eierfratze0815</td></tr>
+<tr><td>LinusCreeperTH</td><td>Administrator</td><td>/msg LinusCreeperTH</td></tr>
+<tr><td>Renepvpnoob</td><td>Administrator</td><td>/msg Renepvpnoob</td></tr>
+<tr><td>Poseidon_Lp</td><td>Moderator</td><td>/msg Poseidon_Lp</td></tr>
+</table>
+</div>
+
+<!-- News -->
+<div class="card">
+<h2>📰 News</h2>
+<p>Bleibe auf dem Laufenden: <a href="news.md" style="color:#ffaa00;">News</a></p>
+<p>Hier findest du Updates, Events und Ankündigungen für den Server.</p>
+</div>
+
+</div>
+
+<button onclick="topFunction()" id="topBtn" title="Nach oben">⬆</button>
+
+<script>
+// Partikel Minecraft-Farben
+const container = document.getElementById('particles');
+const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F'];
+for(let i=0;i<80;i++){
+    let p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'vw';
+    p.style.top=Math.random()*100+'vh';
+    let size = 3 + Math.random()*4;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    let duration = 15 + Math.random()*15;
+    let swayDuration = 3 + Math.random()*4;
+    p.style.animationDuration = duration+'s, '+swayDuration+'s';
+    container.appendChild(p);
+}
+
+// Collapsible
+var coll = document.getElementsByClassName("collapsible");
+for(let i=0;i<coll.length;i++){
+    coll[i].addEventListener("click", function(){
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if(content.style.maxHeight){ content.style.maxHeight = null; }
+        else{ content.style.maxHeight = content.scrollHeight + "px"; }
+    });
+}
+
+// Nach oben Button
+function topFunction() { window.scrollTo({top:0, behavior:'smooth'}); }
+</script>
+
+</body>
+</html>
