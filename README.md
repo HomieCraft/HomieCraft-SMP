@@ -9,7 +9,7 @@ Hier findest du alle Infos und das Regelwerk für **HomieCraft SMP**.
 - [Regelwerk](regelwerk.md)
 - [Commands](#commands)
 - [Hilfe](#hilfe)
-- [Ränge](#ränge)
+- [Ränge](raenge.html)
 - [Team](#team)
 
 ---
