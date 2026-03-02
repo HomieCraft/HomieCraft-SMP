@@ -1,32 +1,40 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>HomieCraft SMP - Ränge</title>
-
 <style>
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background: #0f0f0f;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
 h1 {
-    margin-top: 40px;
+    margin-top: 20px;
+    font-size: 2.5em;
 }
 
 .section {
     margin-top: 50px;
+    width: 90%;
+    max-width: 1000px; /* große Bildschirme */
 }
 
 .rank {
     background: #1c1c1c;
     margin: 15px auto;
-    padding: 15px;
-    width: 300px;
+    padding: 20px;
     border-radius: 10px;
     transition: 0.3s;
+    font-size: 1.5em;
 }
 
 .rank:hover {
@@ -34,7 +42,6 @@ h1 {
 }
 
 /* Spieler Ränge */
-
 .spieler { color: #aaaaaa; }
 .premium { color: #ffaa00; font-weight: bold; }
 .supreme { color: #0000aa; font-weight: bold; }
@@ -42,40 +49,9 @@ h1 {
 .creator { color: #ff55ff; font-weight: bold; }
 
 /* Staff Ränge */
-
 .support { color: #ffff55; }
 .mod { color: #ff5555; font-weight: bold; }
 .dev { color: #55ffff; font-weight: bold; }
 .admin { color: #aa0000; font-weight: bold; }
 .owner { color: #aa0000; font-weight: bold; text-shadow: 0 0 10px red; }
-
 </style>
-</head>
-<body>
-
-<h1>🏆 HomieCraft SMP – Ränge</h1>
-
-<div class="section">
-<h2>🎮 Spieler-Ränge</h2>
-
-<div class="rank spieler">Spieler</div>
-<div class="rank premium">Premium</div>
-<div class="rank supreme">Supreme</div>
-<div class="rank vip">VIP</div>
-<div class="rank creator">Creator</div>
-
-</div>
-
-<div class="section">
-<h2>🛡 Server-Team</h2>
-
-<div class="rank support">Supporter</div>
-<div class="rank mod">Moderator</div>
-<div class="rank dev">Developer</div>
-<div class="rank admin">Administrator</div>
-<div class="rank owner">OWNER</div>
-
-</div>
-
-</body>
-</html>
