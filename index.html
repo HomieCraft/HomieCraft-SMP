@@ -2,164 +2,148 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>HomieCraft SMP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+    <title>HomieCraft SMP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navigation -->
-<header class="navbar">
-    <div class="logo" onclick="location.href='index.html'">
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo" onclick="window.location='index.html'">
         <img src="images/logo.jpg" alt="Server Logo">
-        <span class="logo-text">
-            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
-        </span>
+        <span class="logo-text">HomieCraft SMP</span>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</header>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+</div>
 
 <!-- Side Menu / Inhaltsverzeichnis -->
 <div id="sideMenu" class="side-menu">
-    <a href="#hero">Startseite</a>
-    <a href="#server-info">Server Info</a>
-    <a href="#spielmodi">Spielmodi</a>
+    <a href="index.html">Startseite</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="raenge.html">Ränge</a>
+    <a href="#tipps">Tipps</a>
     <a href="#team">Team</a>
     <a href="#commands">Commands</a>
-    <a href="#tipps">Tipps</a>
-    <a href="#extras">Extras</a>
 </div>
 
 <!-- Hero Section -->
-<section id="hero" class="hero">
+<section class="hero">
     <div class="hero-content">
-        <h2>Willkommen auf</h2>
-        <h1><span class="cyan glow">HomieCraft</span> <span class="purple glow-strong">SMP</span></h1>
-        <p class="prefix">&b&lHomie &5&lSMP</p>
-
-        <div id="server-info" class="server-box">
-            <p>Status: <span id="server-status">Online</span></p>
-            <p>Version: 1.20.1 – 1.21.11</p>
-            <p>Slots: 30</p>
+        <h1 class="glow">Willkommen bei HomieCraft SMP</h1>
+        <h2>Dein SMP Server für 1.20.1 bis 1.21.11 Java Minecraft</h2>
+        <div class="prefix glow-strong">&b&lHomie &5&lSMP</div>
+        <div class="server-box">
+            <p>IP: <span class="ip">homiecraft-smp.aternos.me</span></p>
             <button onclick="copyIP()">IP kopieren</button>
-            <p class="ip">homiecraft-smp.aternos.me</p>
         </div>
-
-        <div class="scroll-down">▼</div>
+        <div class="scroll-down">&#8595;</div>
     </div>
 </section>
 
-<!-- Spielmodi -->
+<!-- Server Info Section -->
+<section id="server-info" class="section">
+    <h2 class="gradient-title">Server Info</h2>
+    <p>Version: 1.20.1 bis 1.21.11 Java Edition</p>
+    <p>Nicht cracked – ganz normales Minecraft</p>
+    <p>Was man hier machen kann: SMP, Farmen, Bauen, Events & Coming Soon Features!</p>
+</section>
+
+<!-- Spielmodi Section -->
 <section id="spielmodi" class="section">
-    <h2>Spielmodi</h2>
-    <p>Derzeit verfügbar: SMP (Survival Multiplayer)<br>
-       Weitere Spielmodi folgen bald! <span class="coming-soon">Coming Soon!</span></p>
-</section>
-
-<!-- Was man hier machen kann -->
-<section id="was-machen" class="section">
-    <h2>Was man hier machen kann</h2>
-    <ul>
-        <li>Bauen & Erkunden</li>
-        <li>Ressourcen sammeln</li>
-        <li>An Events teilnehmen</li>
-        <li>Ränge erspielen durch Ingame-Money und Events</li>
-    </ul>
-</section>
-
-<!-- Teammitglieder -->
-<section id="team" class="section">
-    <h2>Teammitglieder</h2>
+    <h2 class="gradient-title">Spielmodi</h2>
     <div class="cards">
-        <!-- Platzhalter Teamkarten -->
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/LucaMaximal" alt="">
-            <h3>LucaMaximal</h3>
-            <span class="rank owner">OWNER / DEVELOPER</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/Eierfratze0815" alt="">
-            <h3>Eierfratze0815</h3>
-            <span class="rank owner">OWNER</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/AdminName" alt="">
-            <h3>AdminName</h3>
-            <span class="rank admin">ADMIN</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/DevName" alt="">
-            <h3>DevName</h3>
-            <span class="rank dev">DEVELOPER</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/ModName" alt="">
-            <h3>ModName</h3>
-            <span class="rank mod">MODERATOR</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/SupportName" alt="">
-            <h3>SupportName</h3>
-            <span class="rank support">SUPPORT</span>
-        </div>
-        <div class="card team-card">
-            <img src="https://mc-heads.net/avatar/BuilderName" alt="">
-            <h3>BuilderName</h3>
-            <span class="rank builder">BUILDER</span>
-        </div>
+        <div class="card">Survival SMP</div>
+        <div class="card">Coming Soon</div>
     </div>
 </section>
 
-<!-- Commands Liste -->
-<section id="commands" class="section">
-    <h2>Commands Liste</h2>
-    <ul>
-        <li>/spawn – zum Spawn teleportieren</li>
-        <li>/home – eigenes Haus betreten</li>
-        <li>/warp &lt;Ort&gt; – zu Warps reisen</li>
-        <li>/tpa &lt;Spieler&gt; – Teleport-Anfrage</li>
-        <li>/msg &lt;Spieler&gt; &lt;Nachricht&gt; – private Nachricht</li>
-        <!-- Weitere Commands hier -->
-    </ul>
-</section>
-
-<!-- Tipps für Anfänger & Allgemeine Tipps -->
+<!-- Tipps Section -->
 <section id="tipps" class="section">
-    <h2>Tipps für Anfänger</h2>
+    <h2 class="gradient-title">Tipps für Anfänger</h2>
     <ul>
-        <li>Baue zuerst ein sicheres Zuhause</li>
-        <li>Sammele grundlegende Ressourcen wie Holz und Stein</li>
-        <li>Schütze dich vor Monstern in der Nacht</li>
-    </ul>
-    <h2>Allgemeine Tipps</h2>
-    <ul>
-        <li>Events geben zusätzliche Belohnungen</li>
-        <li>Ränge können durch Ingame-Money oder Events erspielt werden</li>
-        <li>Kooperiere mit anderen Spielern für größere Projekte</li>
+        <li>Baue dir zuerst ein kleines Haus</li>
+        <li>Sammle Ressourcen wie Holz & Stein</li>
+        <li>Pass auf Creeper und Zombies auf</li>
+        <li>Erkunde die Welt und farm XP</li>
+        <li>Nutze den &b&lHomie &5&lSMP Prefix für Chat-Commands</li>
     </ul>
 </section>
 
-<!-- Extras -->
-<section id="extras" class="section">
-    <h2>Extras</h2>
+<!-- Commands Section -->
+<section id="commands" class="section">
+    <h2 class="gradient-title">Commands</h2>
+    <ul>
+        <li>/spawn – Gehe zum Spawn</li>
+        <li>/home – Teleportiere zu deinem Haus</li>
+        <li>/warp – Liste der Warps</li>
+        <li>/tpa – Teleportanfrage zu einem Spieler</li>
+        <li>/msg – Nachricht an einen Spieler senden</li>
+    </ul>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="section">
+    <h2 class="gradient-title">Teammitglieder</h2>
     <div class="cards">
-        <div class="card">🎉 Regelmäßige Events</div>
-        <div class="card">⚔ SMP + zukünftige Spielmodi</div>
-        <div class="card">💎 Alle Ränge erspielbar – Kein Pay2Win</div>
-        <div class="card">🛡 Aktives Team</div>
+        <!-- Owner -->
+        <div class="team-card">
+            <img src="images/owner1.png" alt="LucaMaximal">
+            <p class="rank owner">OWNER</p>
+            <p>LucaMaximal</p>
+        </div>
+        <div class="team-card">
+            <img src="images/owner2.png" alt="Eierfratze0815">
+            <p class="rank owner">OWNER</p>
+            <p>Eierfratze0815</p>
+        </div>
+        <!-- Developer -->
+        <div class="team-card">
+            <img src="images/dev1.png" alt="DevUser1">
+            <p class="rank dev">DEV</p>
+            <p>DevUser1</p>
+        </div>
+        <div class="team-card">
+            <img src="images/dev2.png" alt="DevUser2">
+            <p class="rank dev">DEV</p>
+            <p>DevUser2</p>
+        </div>
+        <!-- Moderator / Supporter / Builder -->
+        <div class="team-card">
+            <img src="images/mod1.png" alt="Mod1">
+            <p class="rank mod">MODERATOR</p>
+            <p>Mod1</p>
+        </div>
+        <div class="team-card">
+            <img src="images/support1.png" alt="Support1">
+            <p class="rank support">SUPPORTER</p>
+            <p>Support1</p>
+        </div>
+        <div class="team-card">
+            <img src="images/builder1.png" alt="Builder1">
+            <p class="rank builder">BUILDER</p>
+            <p>Builder1</p>
+        </div>
     </div>
 </section>
 
-<!-- Scroll Top Button -->
-<button id="topBtn" onclick="scrollToTop()">⬆</button>
+<!-- Extras Section -->
+<section id="extras" class="section">
+    <h2 class="gradient-title">Extras</h2>
+    <div class="cards">
+        <div class="card">Events & Gewinnspiele</div>
+        <div class="card">Besondere Commands</div>
+        <div class="card">Community Tipps & Tricks</div>
+    </div>
+</section>
 
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="topBtn">↑</button>
+
+<!-- Footer -->
 <footer>
-    © 2026 HomieCraft SMP<br>
-    Nicht offiziell mit Mojang oder Microsoft verbunden.
+    &copy; 2026 HomieCraft SMP – Alle Rechte vorbehalten
 </footer>
 
 <script src="script.js"></script>
