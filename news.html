@@ -1,97 +1,63 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>HomieCraft SMP - News</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-html { scroll-behavior: smooth; }
-body { margin:0; font-family: 'Arial', sans-serif; color:white; background-color:#0f0f0f; overflow-x:hidden; position: relative; }
+    <meta charset="UTF-8">
+    <title>News – HomieCraft SMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* Hintergrund Blöcke + Nebel + Partikel */
-#block-pattern { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background-image: repeating-linear-gradient(0deg,#222 0 20px,#1a1a1a 20px 40px), repeating-linear-gradient(90deg,#222 0 20px,#1a1a1a 20px 40px); opacity:0.05; pointer-events:none; }
-#fog { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 70%); animation: fogMove 80s linear infinite; }
-@keyframes fogMove { 0% { background-position:0 0;} 50%{background-position:200px 100px;} 100%{background-position:0 0;} }
-#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-.particle { position:absolute; border-radius:50%; animation-name: float,sway; animation-iteration-count: infinite; animation-timing-function: linear; }
-@keyframes float { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
-@keyframes sway { 0%,100% { transform: translateX(0px); } 50% { transform: translateX(15px); } }
-
-/* Container */
-.container { max-width:1200px; margin:auto; padding:20px; }
-h1 { text-align:center; font-size:3em; color:#ffcc00; margin-top:40px; text-shadow:0 0 15px #ffcc00; }
-h2 { color:#ffaa00; text-shadow:0 0 8px #ffaa00; margin-bottom:10px; }
-
-/* Home Button oben links */
-#homeBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #ffaa00;
-  color: #0f0f0f;
-  text-decoration: none;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  z-index: 10;
-  box-shadow: 0 0 10px #ffaa00;
-  transition: 0.3s;
-}
-#homeBtn:hover { background-color: #ffcc00; }
-
-/* Karten-Layout */
-.card { background:#1c1c1c; padding:25px; margin:20px auto; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.5); transition:0.3s; max-width:800px; }
-.card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,255,0,0.5); }
-.card h3 { margin-top:0; color:#ffaa00; text-shadow:0 0 8px #ffaa00; font-size:1.5em; }
-.card p { margin:5px 0; color:#ddd; }
-.card .type { font-weight:bold; color:#ffcc00; }
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="block-pattern"></div>
-<div id="fog"></div>
-<div id="particles"></div>
+<!-- Navigation -->
+<header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Server Logo">
+        <span class="logo-text">
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </span>
+    </div>
 
-<!-- Home Button -->
-<a href="index.html" id="homeBtn" title="Zurück zur Startseite">🏠 Home</a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
 
-<div class="container">
-<h1>📰 HomieCraft SMP – News</h1>
-
-<div class="card">
-<h3>01.03.2026 – GitHub erstellt</h3>
-<p class="type">Art: Update</p>
-<p>Beschreibung: Wir haben nun eine Seite (diese Seite), wo alle Infos / News / Events / Teammitglieder / Regelwerk aufgelistet sind.</p>
+<!-- Side Menu -->
+<div id="sideMenu" class="side-menu">
+    <a href="index.html">Startseite</a>
+    <a href="regelwerk.html">Regelwerk</a>
+    <a href="news.html">News</a>
+    <a href="raenge.html">Ränge</a>
+    <a href="events.html">Events</a>
 </div>
 
-<div class="card">
-<h3>01.03.2026 – Rang Update</h3>
-<p class="type">Art: Update</p>
-<p>Beschreibung: Die Rechte sowie das Aussehen der Ränge wurden geupdatet. In den nächsten Tagen wird hier eine Rang-Info erscheinen, mit den Vorteilen.</p>
-</div>
+<!-- News Section -->
+<section class="section">
+    <h1>News / Ankündigungen</h1>
 
-</div>
+    <div class="news-list">
+        <div class="news-item">
+            <h3>[02.03.2026] Server Update</h3>
+            <p>Wir haben die Version auf 1.21.11 aktualisiert. Neue Blöcke und Features verfügbar!</p>
+        </div>
 
-<script>
-// Partikel Minecraft-Farben
-const container = document.getElementById('particles');
-const colors = ['#FFD700','#A020F0','#1E90FF','#00FF7F'];
-for(let i=0;i<80;i++){
-    let p=document.createElement('div');
-    p.className='particle';
-    p.style.left=Math.random()*100+'vw';
-    p.style.top=Math.random()*100+'vh';
-    let size = 3 + Math.random()*4;
-    p.style.width = size + 'px';
-    p.style.height = size + 'px';
-    p.style.background = colors[Math.floor(Math.random()*colors.length)];
-    let duration = 15 + Math.random()*15;
-    let swayDuration = 3 + Math.random()*4;
-    p.style.animationDuration = duration+'s, '+swayDuration+'s';
-    container.appendChild(p);
-}
-</script>
+        <div class="news-item">
+            <h3>[28.02.2026] Event angekündigt</h3>
+            <p>Am Wochenende gibt es ein Bau-Contest Event mit Preisen für die Gewinner.</p>
+        </div>
 
+        <div class="news-item">
+            <h3>[25.02.2026] Neues Teammitglied</h3>
+            <p>Willkommen unserem neuen Moderator „ModName“ im HomieCraft SMP Team!</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 HomieCraft SMP<br>
+    Nicht offiziell mit Mojang oder Microsoft verbunden.
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
