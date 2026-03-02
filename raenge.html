@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>HomieCraft SMP - Ränge</title>
 
-<!-- Minecraft ähnliche Schrift -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
@@ -13,35 +12,36 @@ html { scroll-behavior: smooth; }
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f0f;
     color: white;
     overflow-x: hidden;
+    background-color: #0f0f0f;
+    position: relative;
 }
 
-/* ===== Partikel Hintergrund ===== */
-#particles {
+/* Subtiles Minecraft Block Pattern */
+body::before {
+    content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    z-index: -3;
+    background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #ffcc00;
-    opacity: 0.5;
-    animation: float 15s linear infinite;
+/* Leichter Nebel */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.03), transparent 60%);
+    pointer-events: none;
 }
 
-@keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
-}
-
-/* ===== Layout ===== */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -54,143 +54,178 @@ h1 {
     color: #ffcc00;
 }
 
-/* Übersicht */
+/* ===== RANG ÜBERSICHT ===== */
 .rank-overview {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     margin: 60px 0;
+    perspective: 1000px;
 }
 
 .rank-card {
     background: #1c1c1c;
-    padding: 20px 35px;
-    border-radius: 12px;
+    padding: 25px 40px;
+    border-radius: 15px;
     font-weight: bold;
     text-decoration: none;
-    transition: 0.3s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
 }
 
+/* 3D Hover Effekt */
 .rank-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px currentColor;
+    transform: rotateX(8deg) rotateY(-8deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-/* Detailbereich */
+/* Detail Karten */
 .rank-detail {
     background: #1c1c1c;
     padding: 40px;
     margin: 40px auto;
     border-radius: 15px;
     max-width: 750px;
+    transition: 0.4s;
+}
+
+.rank-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 
 /* Minecraft Font nur für Namen */
 .rank-name {
     font-family: 'Press Start 2P', cursive;
-    font-size: 1.4em;
+    font-size: 1.3em;
+    margin-bottom: 20px;
 }
 
 /* Farben */
 .spieler { color: #aaaaaa; }
 .premium { color: #ffaa00; }
-.supreme { color: #0000ff; }
+.supreme { color: #3366ff; }
 .vip { color: #aa00aa; }
 .creator { color: #ff55ff; }
+
 .support { color: #ffff55; }
 .mod { color: #ff5555; }
 .dev { color: #55ffff; }
 .admin { color: #aa0000; }
 .owner { color: #ff0000; }
 
-/* Extra Section */
-.features {
-    text-align: center;
-    margin: 80px 0;
-}
-
-.feature-box {
-    display: inline-block;
-    background: #1c1c1c;
-    padding: 25px;
-    margin: 15px;
-    border-radius: 12px;
-    width: 250px;
-    transition: 0.3s;
-}
-
-.feature-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px #ffcc00;
+.rank-desc {
+    line-height: 1.6;
+    color: #dddddd;
 }
 </style>
 </head>
 
 <body>
 
-<div id="particles"></div>
-
 <div class="container">
 
 <h1>🏆 HomieCraft SMP – Ränge</h1>
 
+<!-- ÜBERSICHT -->
 <div class="rank-overview">
+<a href="#spieler" class="rank-card spieler">Spieler</a>
 <a href="#premium" class="rank-card premium">Premium</a>
+<a href="#supreme" class="rank-card supreme">Supreme</a>
 <a href="#vip" class="rank-card vip">VIP</a>
+<a href="#creator" class="rank-card creator">Creator</a>
+<a href="#support" class="rank-card support">Supporter</a>
+<a href="#mod" class="rank-card mod">Moderator</a>
+<a href="#dev" class="rank-card dev">Developer</a>
+<a href="#admin" class="rank-card admin">Administrator</a>
 <a href="#owner" class="rank-card owner">Owner</a>
+</div>
+
+<!-- DETAILBEREICH -->
+
+<div id="spieler" class="rank-detail">
+<div class="rank-name spieler">Spieler</div>
+<div class="rank-desc">
+Standard Survival Rechte<br>
+Bauen, Farmen, Handeln
+</div>
 </div>
 
 <div id="premium" class="rank-detail">
 <div class="rank-name premium">Premium</div>
-<p>Mehr Homes<br>Kosmetische Extras<br>Besondere Chatfarbe</p>
+<div class="rank-desc">
+Mehr Homes<br>
+Kosmetische Extras<br>
+Chatfarbe
+</div>
+</div>
+
+<div id="supreme" class="rank-detail">
+<div class="rank-name supreme">Supreme</div>
+<div class="rank-desc">
+Event Zugang<br>
+Erweiterte Features
+</div>
 </div>
 
 <div id="vip" class="rank-detail">
 <div class="rank-name vip">VIP</div>
-<p>Exklusive Vorteile<br>Events<br>Spezialrechte</p>
+<div class="rank-desc">
+Exklusive Vorteile<br>
+Spezialrechte
+</div>
+</div>
+
+<div id="creator" class="rank-detail">
+<div class="rank-name creator">Creator</div>
+<div class="rank-desc">
+Server Content<br>
+Community Projekte
+</div>
+</div>
+
+<div id="support" class="rank-detail">
+<div class="rank-name support">Supporter</div>
+<div class="rank-desc">
+Hilft Spielern<br>
+Support & Fragen
+</div>
+</div>
+
+<div id="mod" class="rank-detail">
+<div class="rank-name mod">Moderator</div>
+<div class="rank-desc">
+Regeln durchsetzen<br>
+Chat überwachen
+</div>
+</div>
+
+<div id="dev" class="rank-detail">
+<div class="rank-name dev">Developer</div>
+<div class="rank-desc">
+Plugins verwalten<br>
+Technik & Bugs
+</div>
+</div>
+
+<div id="admin" class="rank-detail">
+<div class="rank-name admin">Administrator</div>
+<div class="rank-desc">
+Serververwaltung<br>
+Teamkoordination
+</div>
 </div>
 
 <div id="owner" class="rank-detail">
 <div class="rank-name owner">OWNER</div>
-<p>Voller Zugriff<br>Projektleitung</p>
+<div class="rank-desc">
+Voller Zugriff<br>
+Projektleitung
 </div>
-
-<!-- Neue große Feature Section -->
-<div class="features">
-<h2>🌍 Warum HomieCraft?</h2>
-
-<div class="feature-box">
-<h3>⚔ Aktive Community</h3>
-<p>Freundliche Spieler & Team</p>
-</div>
-
-<div class="feature-box">
-<h3>🎉 Regelmäßige Events</h3>
-<p>Turniere & Spezial-Events</p>
-</div>
-
-<div class="feature-box">
-<h3>🛡 Fair Play</h3>
-<p>Kein Pay2Win</p>
 </div>
 
 </div>
-
-</div>
-
-<script>
-/* Partikel generieren */
-const container = document.getElementById("particles");
-
-for (let i = 0; i < 40; i++) {
-    let particle = document.createElement("div");
-    particle.classList.add("particle");
-    particle.style.left = Math.random() * 100 + "vw";
-    particle.style.animationDuration = (10 + Math.random() * 10) + "s";
-    container.appendChild(particle);
-}
-</script>
 
 </body>
 </html>
