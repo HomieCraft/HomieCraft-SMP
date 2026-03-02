@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
 /* --------------------
    Grundstil
 -------------------- */
@@ -7,6 +9,7 @@ body {
     background: #0f0f12;
     color: white;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 a {
@@ -36,7 +39,7 @@ a {
 }
 
 .logo img {
-    height: 50px; /* Logo Größe */
+    height: 50px;
     margin-right: 10px;
 }
 
@@ -51,7 +54,7 @@ a {
 }
 
 /* --------------------
-   Side Menu
+   Side Menu / Inhaltsverzeichnis
 -------------------- */
 .side-menu {
     position: fixed;
@@ -71,14 +74,16 @@ a {
     padding: 15px 30px;
     color: white;
     font-weight: 500;
+    transition: 0.2s;
 }
 
 .side-menu a:hover {
     background: #222;
+    color: #00ffff;
 }
 
 /* --------------------
-   Hero Section
+   Hero Section / Parallax
 -------------------- */
 .hero {
     height: 100vh;
@@ -103,6 +108,17 @@ a {
     z-index: 0;
 }
 
+.hero::after {
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0; left:0;
+    background: radial-gradient(circle, rgba(0,255,255,0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
+    pointer-events: none;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
@@ -111,11 +127,18 @@ a {
 .hero h1 {
     font-size: 60px;
     margin: 10px 0;
+    animation: fadeIn 2s ease-out;
 }
 
 .hero h2 {
     font-weight: 300;
     font-size: 28px;
+}
+
+.prefix {
+    font-family: monospace;
+    font-weight: 700;
+    margin-top: 10px;
 }
 
 /* Glow Effekte */
@@ -130,6 +153,8 @@ a {
     background: #141418;
     padding: 20px;
     border-radius: 10px;
+    display: inline-block;
+    animation: fadeIn 2.5s ease-out;
 }
 
 .server-box button {
@@ -141,6 +166,11 @@ a {
     margin-top: 10px;
     color: black;
     font-weight: 600;
+    transition: 0.2s;
+}
+
+.server-box button:hover {
+    background: #00aaff;
 }
 
 /* Scroll Down Pfeil */
@@ -155,12 +185,26 @@ a {
     50% { transform: translateY(15px); }
 }
 
+/* FadeIn Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* --------------------
-   Section / Features / Team
+   Sections / Cards / Team
 -------------------- */
 .section {
     padding: 100px 20px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .cards {
@@ -178,17 +222,24 @@ a {
     width: 250px;
     transition: 0.3s;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    cursor: default;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,255,255,0.5);
 }
 
 /* Team Cards */
 .team-card img {
     width: 80px;
     border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.team-card img:hover {
+    transform: scale(1.15);
 }
 
 .rank.owner { color: darkred; font-weight: bold; }
@@ -198,9 +249,29 @@ a {
 .rank.support { color: #ffff55; font-weight: bold; }
 .rank.builder { color: #00aa00; font-weight: bold; }
 
-/* --------------------
-   Scroll Top Button
--------------------- */
+/* Commands / Tipps / Listen */
+.section ul {
+    list-style: disc;
+    margin-left: 20px;
+    line-height: 1.6;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section h2 {
+    margin-top: 30px;
+    color: #00ffff;
+}
+
+/* Extras Cards */
+.cards .card {
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Scroll Top Button */
 #topBtn {
     position: fixed;
     bottom: 20px;
@@ -216,15 +287,69 @@ a {
     z-index: 1000;
 }
 
-/* --------------------
-   Footer
--------------------- */
+/* Footer */
 footer {
     text-align: center;
     padding: 30px;
     background: #141418;
     font-size: 14px;
 }
+
+/* News / Events / Ränge */
+.news-list, .events-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.news-item, .event-item {
+    background: #141418;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.news-item:hover, .event-item:hover {
+    box-shadow: 0 5px 15px rgba(0,255,255,0.3);
+}
+
+/* Gradient Titel (Ränge) */
+.gradient-title {
+    background: linear-gradient(90deg, #a020f0, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+/* Ränge Farben */
+.rank-card {
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.rank-card.owner { background: #800000; color: #ff9999; }
+.rank-card.admin { background: #8B0000; color: #ff7777; }
+.rank-card.dev { background: #00ffff; color: #00ffff; }
+.rank-card.mod { background: #ff5555; color: #ff8888; }
+.rank-card.support { background: #ffff55; color: #ffffaa; }
+.rank-card.builder { background: #00aa00; color: #55ff55; }
+
+.rank-card.creator { background: #ff55ff; color: #ff99ff; }
+.rank-card.homie { background: #aa55ff; color: #dd88ff; }
+.rank-card.supreme { background: #00008b; color: #5555ff; }
+.rank-card.premium { background: #ffaa00; color: #ffd966; }
+.rank-card.spieler { background: #888888; color: #cccccc; }
+.rank-card.vip { background: #aa00ff; color: #dd55ff; }
+
+/* Coming Soon */
+.coming-soon { color: #ff00ff; font-weight: bold; }
 
 /* --------------------
    Responsiv
@@ -233,4 +358,5 @@ footer {
     .cards { flex-direction: column; align-items: center; }
     .hero h1 { font-size: 48px; }
     .hero h2 { font-size: 22px; }
+    .section ul { max-width: 100%; }
 }
