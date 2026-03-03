@@ -5,23 +5,27 @@
     <title>HomieCraft SMP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- PARTICLE HINTERGRUND -->
 <canvas id="particles"></canvas>
+<div class="fog"></div>
 
+<!-- HEADER -->
 <header>
     <div class="logo-container" onclick="location.href='index.html'">
         <img src="images/logo.jpg" alt="Logo">
         <h1>
-            <span class="cyan">HomieCraft</span>
-            <span class="purple">SMP</span>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
         </h1>
     </div>
     <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
 
+<!-- SIDEBAR -->
 <nav id="sidebar">
     <ul>
         <li><a href="#info">Info</a></li>
@@ -36,25 +40,19 @@
         <li><a href="events.html">Events</a></li>
     </ul>
 </nav>
-
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <!-- HERO -->
 <section class="hero">
     <h2 class="hero-title">
-        <span class="gradient-text">HomieCraft SMP</span>
+        Willkommen auf <span class="gradient-text">HomieCraft SMP</span>
     </h2>
-
-    <div id="server-status" class="live-status">
-        Lade Serverstatus...
-    </div>
-
     <p class="subtitle">Dein Abenteuer beginnt hier.</p>
-
     <div class="hero-buttons">
         <button onclick="copyIP()" class="btn-primary">IP kopieren</button>
         <a href="#info" class="btn-secondary">Jetzt beitreten</a>
     </div>
+    <p id="server-status" class="live-status">Lade Serverstatus...</p>
 </section>
 
 <!-- SERVER INFO -->
@@ -66,12 +64,12 @@
         <div class="card">Max Spieler: 30</div>
         <div class="card" id="version-card">Version: ...</div>
         <div class="card">Edition: Java</div>
-        <div class="card copy-ip" onclick="copyIP()">IP: homiecraft-smp.aternos.me</div>
+        <div class="card">IP: homiecraft-smp.aternos.me</div>
     </div>
 </section>
 
 <!-- SPIELMODI -->
-<section id="gamemodes" class="section alt">
+<section id="gamemodes" class="section">
     <h2>Spielmodi</h2>
     <div class="gamemode-grid">
         <div class="card active">SMP</div>
@@ -84,11 +82,13 @@
 <!-- TEAM -->
 <section id="team" class="section">
     <h2>Unser Team</h2>
-    <div class="team-grid" id="team-container"></div>
+    <div class="team-grid" id="team-container">
+        <!-- JS generiert -->
+    </div>
 </section>
 
 <!-- COMMANDS -->
-<section id="commands" class="section alt">
+<section id="commands" class="section">
     <h2>Commands</h2>
     <div class="accordion">
         <div class="accordion-item">
@@ -120,23 +120,36 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="section alt">
+<section id="faq" class="section">
     <h2>FAQ</h2>
     <div class="accordion">
         <div class="accordion-item">
             <div class="accordion-header">Wie trete ich bei?</div>
             <div class="accordion-content">
-                Füge die IP in Minecraft Java hinzu.
+                Füge die IP in deiner Minecraft Java Edition hinzu.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">Welche Version?</div>
+            <div class="accordion-content">
+                1.20.1 – 1.21.11
             </div>
         </div>
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 HomieCraft SMP</p>
-    <p id="footer-version"></p>
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Entwickelt von LucaMaximal</p>
+    </div>
 </footer>
 
+<!-- SCROLL TOP -->
 <button id="scrollTop" onclick="scrollToTop()">↑</button>
 
 <script src="script.js"></script>
