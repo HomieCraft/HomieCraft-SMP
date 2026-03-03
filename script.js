@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded",function(){
     window.onscroll=function(){
         if(document.documentElement.scrollTop>300){scrollBtn.style.display="block";}
         else{scrollBtn.style.display="none";}
+        fadeInSections();
     };
     window.scrollToTop=function(){window.scrollTo({top:0,behavior:"smooth"});};
 
@@ -40,7 +41,6 @@ document.addEventListener("DOMContentLoaded",function(){
             const playersCard=document.getElementById("players-card");
             const versionCard=document.getElementById("version-card");
             const footerVersion=document.getElementById("footer-version");
-
             if(!data){statusEl.innerHTML="Status unbekannt"; return;}
             if(data.online===true && data.players){
                 const onlinePlayers=data.players.online??0;
@@ -83,16 +83,32 @@ document.addEventListener("DOMContentLoaded",function(){
             <h3>${member.name}</h3>
             <p class="rank-${member.rank}">${member.rank.toUpperCase()}</p>
         `;
+        card.addEventListener("mouseover",()=>{card.style.transform="translateY(-7px)";card.style.boxShadow=`0 0 15px var(--${member.rank})`;});
+        card.addEventListener("mouseout",()=>{card.style.transform="translateY(0)";card.style.boxShadow="";});
         teamContainer.appendChild(card);
     });
 
-    // PARTICLES
+    // FADE-IN SECTIONS
+    function fadeInSections(){
+        document.querySelectorAll(".section,.hero").forEach(el=>{
+            const top=el.getBoundingClientRect().top;
+            if(top<window.innerHeight-100){el.style.opacity=1;el.style.transform="translateY(0)";}
+        });
+        // hero text/buttons
+        const hero=document.querySelector(".hero");
+        hero.querySelectorAll(".hero-title,.subtitle,.hero-buttons").forEach(el=>{
+            el.style.opacity=1; el.style.transform="translateY(0)";
+        });
+    }
+    fadeInSections();
+
+    // PARTICLES & NEBEL
     const canvas=document.getElementById("particles");
     const ctx=canvas.getContext("2d");
     canvas.width=window.innerWidth;
     canvas.height=window.innerHeight;
     let particles=[];
-    for(let i=0;i<60;i++){particles.push({
+    for(let i=0;i<80;i++){particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
         r:Math.random()*2+1,
@@ -101,10 +117,13 @@ document.addEventListener("DOMContentLoaded",function(){
     });}
     function animateParticles(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
+        // Nebel
+        ctx.fillStyle="rgba(15,17,23,0.2)";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
         particles.forEach(p=>{
             ctx.beginPath();
             ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-            ctx.fillStyle="rgba(0,229,255,0.3)";
+            ctx.fillStyle="rgba(0,229,255,0.2)";
             ctx.fill();
             p.x+=p.dx;p.y+=p.dy;
             if(p.x<0||p.x>canvas.width)p.dx*=-1;
