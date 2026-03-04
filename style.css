@@ -101,6 +101,7 @@ header h1{font-family:'Orbitron',sans-serif;font-size:22px;}
 /* TEAM COLORS */
 .rank-owner{color:var(--owner);font-weight:bold;text-shadow:0 0 8px var(--owner);}
 .rank-admin{color:var(--admin);font-weight:bold;text-shadow:0 0 4px var(--admin);}
+.rank-developer{color:var(--developer);font-weight:bold;text-shadow:0 0 4px var(--developer);}
 .rank-moderator{color:var(--mod);font-weight:bold;text-shadow:0 0 4px var(--mod);}
 .rank-support{color:var(--support);}
 .rank-builder{color:var(--builder);}
