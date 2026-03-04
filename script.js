@@ -71,8 +71,9 @@ const teamMembers=[
     {name:"LucaMaximal",rank:"owner"},
     {name:"Eierfratze0815",rank:"owner"},
     {name:"person12",rank:"admin"},
+    {name:"LucaMaximal",rank:"developer"},
     {name:"derMax",rank:"moderator"},
-    {name:"Dolo1898",rank:"support"},
+    {name:"Dolo1989",rank:"support"},
     {name:"Saro4444444",rank:"creator"}
 ];
 const teamContainer=document.getElementById("team-container");
