@@ -17,7 +17,7 @@ window.copyIP=function(){
 // SCROLL TOP
 const scrollBtn=document.getElementById("scrollTop");
 window.onscroll=function(){
-    if(document.documentElement.scrollTop>100){scrollBtn.style.display="block";}
+    if(document.documentElement.scrollTop>10){scrollBtn.style.display="block";}
     else{scrollBtn.style.display="none";}
     fadeInSections();
     parallaxScroll();
