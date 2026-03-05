@@ -30,8 +30,8 @@ body{
     position:relative;
     perspective:1px;
     transform-style:preserve-3d;
+    padding-top:80px; /* Abstand wegen fixed Header */
 }
-
 /* PARTICLES + FOG LAYER */
 #particles, .fog{
     position:fixed;
