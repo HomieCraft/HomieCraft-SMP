@@ -128,3 +128,13 @@ footer p{margin:6px 0;}
 
 /* RESPONSIVE */
 @media(max-width:768px){.hero-title{font-size:30px;}header{padding:15px 20px;}#sidebar{width:75%;}}
+
+.hero-info{
+    margin-bottom:25px;
+    font-size:18px;
+    color:var(--text-light);
+}
+
+.hero-info p{
+    margin:4px 0;
+}
