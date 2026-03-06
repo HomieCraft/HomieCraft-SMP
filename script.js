@@ -85,8 +85,7 @@ setInterval(loadServerStatus,60000);
 // TEAM SYSTEM
 const teamMembers=[
 {name:"LucaMaximal",rank:"owner"},
-{name:"Eierfratze0815",rank:"owner"},
-{name:"? Unbekannt!",rank:"admin"},
+{name:"Eierfratze0815",rank:"admin"},
 {name:"LucaMaximal",rank:"developer"},
 {name:"? Unbekannt",rank:"moderator"},
 {name:"Saro4444444",rank:"support"},
