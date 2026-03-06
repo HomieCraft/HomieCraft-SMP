@@ -138,3 +138,20 @@ footer p{margin:6px 0;}
 .hero-info p{
     margin:4px 0;
 }
+
+.screenshots{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.screenshots img{
+    width:100%;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.screenshots img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px var(--cyan);
+}
