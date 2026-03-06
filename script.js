@@ -107,13 +107,23 @@ const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let particles=[];
-for(let i=0;i<100;i++){particles.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*2+1,
-    dx:(Math.random()-0.5)*0.5,
-    dy:(Math.random()-0.5)*0.5
-});}
+let particles=[];
+
+for(let i=0;i<120;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+
+r:Math.random()*2+1,
+
+dx:(Math.random()-0.5)*0.3,
+dy:(Math.random()-0.5)*0.3,
+
+color: Math.random() > 0.5 ? "#00e5ff" : "#a855f7"
+
+});
 function animateParticles(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     // Nebel
@@ -122,7 +132,7 @@ function animateParticles(){
     particles.forEach(p=>{
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle="rgba(0,229,255,0.2)";
+        ctx.fillStyle = p.color;
         ctx.fill();
         p.x+=p.dx;p.y+=p.dy;
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
