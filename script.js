@@ -135,9 +135,18 @@ window.addEventListener("resize",()=>{canvas.width=window.innerWidth;canvas.heig
 
 // PARALLAX SCROLL
 function parallaxScroll(){
+
     const scrolled = window.scrollY;
-    document.querySelectorAll(".section").forEach(el=>{
-        el.style.transform = `translateY(${scrolled * 0.05}px)`;
+
+    document.querySelectorAll(".section").forEach((section,i)=>{
+
+        const speed = 0.05 + (i * 0.01);
+
+        section.style.transform =
+        `translateY(${scrolled * speed}px)
+         rotateX(${scrolled * 0.02}deg)`;
+
     });
+
 }
 });
