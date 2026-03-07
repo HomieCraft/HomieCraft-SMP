@@ -1,68 +1,208 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Ränge – HomieCraft SMP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Ränge – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Ränge spezifisch */
+.rank-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.rank-buttons button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+}
+.rank-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
+.rank-detail {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    display: none;
+    text-align: left;
+}
+.rank-detail h3 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+.rank-detail ul {
+    list-style: disc inside;
+}
+.rank-owner { background-color: var(--owner); }
+.rank-admin { background-color: var(--admin); }
+.rank-developer { background-color: var(--developer); }
+.rank-mod { background-color: var(--mod); }
+.rank-support { background-color: var(--support); }
+.rank-builder { background-color: var(--builder); }
+.rank-creator { background-color: var(--creator); }
+.rank-homie { background-color: var(--homie); }
+.rank-vip { background-color: var(--vip); }
+.rank-supreme { background-color: var(--supreme); }
+.rank-premium { background-color: var(--premium); }
+.rank-spieler { background-color: var(--spieler); }
+</style>
 </head>
 <body>
 
-<!-- Navigation -->
-<header class="navbar">
-    <div class="logo" onclick="location.href='index.html'">
-        <img src="images/logo.jpg" alt="Server Logo">
-        <span class="logo-text">
-            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
-        </span>
-    </div>
+<!-- PARTICLE HINTERGRUND -->
+<canvas id="particles"></canvas>
+<div class="fog"></div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<!-- HEADER -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- Side Menu -->
-<div id="sideMenu" class="side-menu">
-    <a href="index.html">Startseite</a>
-    <a href="regelwerk.html">Regelwerk</a>
-    <a href="news.html">News</a>
-    <a href="raenge.html">Ränge</a>
-    <a href="events.html">Events</a>
-</div>
+<!-- SIDEBAR -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
 
-<!-- Ränge Section -->
+<!-- RÄNGE SECTION -->
 <section class="section">
-    <h1>Ränge auf HomieCraft SMP</h1>
+    <h2>Ränge auf HomieCraft SMP</h2>
 
-    <!-- Team Ränge -->
-    <h2>Team Ränge</h2>
-    <div class="cards">
-        <div class="card rank-card owner">&4&lOWNER</div>
-        <div class="card rank-card admin">&4&lADMIN (Administrator)</div>
-        <div class="card rank-card dev">&b&lDev (Developer)</div>
-        <div class="card rank-card mod">&c&lMod (Moderator)</div>
-        <div class="card rank-card support">&eSup (Supporter)</div>
-        <div class="card rank-card builder">&2Builder</div>
+    <!-- Klickbare Buttons für Ränge -->
+    <div class="rank-buttons">
+        <button class="rank-owner">OWNER</button>
+        <button class="rank-admin">ADMIN</button>
+        <button class="rank-developer">DEVELOPER</button>
+        <button class="rank-mod">MOD</button>
+        <button class="rank-support">SUPPORT</button>
+        <button class="rank-builder">BUILDER</button>
+        <button class="rank-creator">CREATOR</button>
+        <button class="rank-homie">HOMIE</button>
+        <button class="rank-vip">VIP</button>
+        <button class="rank-supreme">SUPREME</button>
+        <button class="rank-premium">PREMIUM</button>
+        <button class="rank-spieler">SPIELER</button>
     </div>
 
-    <!-- Normale Spieler Ränge -->
-    <h2>Normale Ränge</h2>
-    <div class="cards">
-        <div class="card rank-card creator">&d&lCreator</div>
-        <div class="card rank-card homie">Homie</div>
-        <div class="card rank-card supreme">&1Supreme</div>
-        <div class="card rank-card premium">&6Premium</div>
-        <div class="card rank-card spieler">&7Spieler</div>
-        <div class="card rank-card vip">&5&lVIP</div>
+    <!-- Detail-Karten für Ränge -->
+    <div id="rank-detail" class="rank-detail">
+        <h3 id="rank-name">Rang Name</h3>
+        <p id="rank-desc">Beschreibung des Rangs und Vorteile hier.</p>
+        <ul id="rank-features"></ul>
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    © 2026 HomieCraft SMP<br>
-    Nicht offiziell mit Mojang oder Microsoft verbunden.
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
 </footer>
 
+<!-- SCROLL TOP -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+
 <script src="script.js"></script>
+<script>
+// Ränge mit Features
+const ranks = {
+    "OWNER": {
+        desc: "Die Serverbesitzer haben alle Rechte und volle Kontrolle über den Server.",
+        features: ["Vollzugriff auf Server", "Verwaltung von Teammitgliedern", "Besondere Belohnungen"]
+    },
+    "ADMIN": {
+        desc: "Administratoren helfen beim Management des Servers und unterstützen das Team.",
+        features: ["Befehle zur Spielerverwaltung", "Moderation", "Event Unterstützung"]
+    },
+    "DEVELOPER": {
+        desc: "Developer kümmern sich um Plugins, Features und technische Verbesserungen.",
+        features: ["Entwicklung von Plugins", "Fehlerbehebung", "Neue Features implementieren"]
+    },
+    "MOD": {
+        desc: "Moderatoren achten auf Regeln und sorgen für ein faires Spiel.",
+        features: ["Regelüberwachung", "Spieler verwarnen/kicken", "Unterstützung von Events"]
+    },
+    "SUPPORT": {
+        desc: "Supporter helfen Spielern bei Problemen und Fragen.",
+        features: ["Spielerhilfe", "Ticketsystem", "Fragen beantworten"]
+    },
+    "BUILDER": {
+        desc: "Builder gestalten die Welt und besondere Bauwerke.",
+        features: ["Gebäude bauen", "Spawn & Mapdesign", "Events dekorieren"]
+    },
+    "CREATOR": {
+        desc: "Creator haben spezielle Features im Spiel, z.B. für Content oder Community Aktionen.",
+        features: ["Besondere Items", "Exklusive Rechte", "Community Projekte"]
+    },
+    "HOMIE": {
+        desc: "Homies sind enge Freunde des Teams mit speziellen Rechten.",
+        features: ["Private Serverbereiche", "Exklusive Chatrechte"]
+    },
+    "VIP": {
+        desc: "VIPs erhalten kleine Vorteile im Spiel.",
+        features: ["Extra Slots", "Schöne Items", "Schnelleres Reisen"]
+    },
+    "SUPREME": {
+        desc: "Supreme Spieler genießen viele Vorteile und Anerkennung.",
+        features: ["Besondere Fähigkeiten", "Exklusive Items", "Hervorgehobener Rang"]
+    },
+    "PREMIUM": {
+        desc: "Premium Spieler haben kleine Extras im Spiel.",
+        features: ["Extras & Boni", "Belohnungen"]
+    },
+    "SPIELER": {
+        desc: "Normale Spieler, die das Abenteuer auf dem Server genießen.",
+        features: ["Normale Rechte", "Teilnahme am Spielgeschehen"]
+    }
+};
+
+// Klick-Event für Buttons
+document.querySelectorAll(".rank-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const rank = ranks[btn.textContent];
+        if(!rank) return;
+        const detail = document.getElementById("rank-detail");
+        document.getElementById("rank-name").textContent = btn.textContent;
+        document.getElementById("rank-desc").textContent = rank.desc;
+        const featureList = document.getElementById("rank-features");
+        featureList.innerHTML = "";
+        rank.features.forEach(f => {
+            const li = document.createElement("li");
+            li.textContent = f;
+            featureList.appendChild(li);
+        });
+        detail.style.display = "block";
+        detail.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+});
+</script>
+
 </body>
 </html>
