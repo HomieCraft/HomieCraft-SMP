@@ -174,3 +174,44 @@ footer p{margin:6px 0;}
     background:linear-gradient(90deg,var(--cyan),var(--purple));
     box-shadow:0 0 10px var(--cyan);
 }
+/* ---------------------- */
+/* RANG BUTTONS FARBEN     */
+/* ---------------------- */
+.rank-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.rank-buttons button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Farben passend zum Rang */
+.rank-buttons button:nth-child(1) { background: var(--spieler); color:#000; }      /* SPIELER */
+.rank-buttons button:nth-child(2) { background: var(--vip); color:#000; }          /* VIP */
+.rank-buttons button:nth-child(3) { background: var(--premium); }                  /* PREMIUM */
+.rank-buttons button:nth-child(4) { background: var(--supreme); }                  /* SUPREME */
+.rank-buttons button:nth-child(5) { background: var(--homie); }                    /* HOMIE */
+.rank-buttons button:nth-child(6) { background: var(--creator); }                  /* CREATOR */
+.rank-buttons button:nth-child(7) { background: var(--builder); }                  /* BUILDER */
+.rank-buttons button:nth-child(8) { background: var(--support); color:#000; }      /* SUPPORT */
+.rank-buttons button:nth-child(9) { background: var(--mod); }                       /* MOD */
+.rank-buttons button:nth-child(10) { background: var(--developer); color:#000; }    /* DEVELOPER */
+.rank-buttons button:nth-child(11) { background: var(--admin); }                    /* ADMIN */
+.rank-buttons button:nth-child(12) { background: var(--owner); }                    /* OWNER */
+
+/* Hover Effekt */
+.rank-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
