@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>News – HomieCraft SMP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>News – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Navigation -->
-<header class="navbar">
-    <div class="logo" onclick="location.href='index.html'">
-        <img src="images/logo.jpg" alt="Server Logo">
-        <span class="logo-text">
-            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
-        </span>
-    </div>
+<!-- PARTICLE HINTERGRUND -->
+<canvas id="particles"></canvas>
+<div class="fog"></div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<!-- HEADER (wie Index) -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- Side Menu -->
-<div id="sideMenu" class="side-menu">
-    <a href="index.html">Startseite</a>
-    <a href="regelwerk.html">Regelwerk</a>
-    <a href="news.html">News</a>
-    <a href="raenge.html">Ränge</a>
-    <a href="events.html">Events</a>
-</div>
+<!-- SIDEBAR (wie Index) -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
 
-<!-- News Section -->
+<!-- NEWS SECTION -->
 <section class="section">
-    <h1>News / Ankündigungen</h1>
+    <h2>News / Ankündigungen</h2>
 
-    <div class="news-list">
-        <div class="news-item">
+    <div class="info-grid">
+        <div class="card">
             <h3>[02.03.2026] Server Update</h3>
             <p>Wir haben die Version auf 1.21.11 aktualisiert. Neue Blöcke und Features verfügbar!</p>
         </div>
 
-        <div class="news-item">
+        <div class="card">
             <h3>[28.02.2026] Event angekündigt</h3>
             <p>Am Wochenende gibt es ein Bau-Contest Event mit Preisen für die Gewinner.</p>
         </div>
 
-        <div class="news-item">
+        <div class="card">
             <h3>[25.02.2026] Neues Teammitglied</h3>
             <p>Willkommen unserem neuen Moderator „ModName“ im HomieCraft SMP Team!</p>
         </div>
     </div>
 </section>
 
+<!-- FOOTER (wie Index) -->
 <footer>
-    © 2026 HomieCraft SMP<br>
-    Nicht offiziell mit Mojang oder Microsoft verbunden.
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
 </footer>
+
+<!-- SCROLL TOP (wie Index) -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
 
 <script src="script.js"></script>
 </body>
