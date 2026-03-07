@@ -90,7 +90,12 @@ const teamMembers=[
 {name:"? Unbekannt",rank:"mod"},
 {name:"? Unbekannt",rank:"support"},
 {name:"? GESUCHT! GESUCHT!",rank:"builder"},
-{name:"? GESUCHT! GESUCHT!",rank:"creator"}
+{name:"? GESUCHT! GESUCHT!",rank:"creator"},
+{name:"? Unbekannt",rank:"homie"},
+{name:"? Unbekannt",rank:"vip"},
+{name:"? Unbekannt",rank:"supreme"},
+{name:"? Unbekannt",rank:"premium"},
+{name:"? GESUCHT! GESUCHT!",rank:"spieler"}
 ];
 
 const teamContainer=document.getElementById("team-container");
