@@ -1,117 +1,114 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Ränge – HomieCraft SMP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* ---------------------- */
-        /* RANG BUTTONS FARBEN     */
-        /* ---------------------- */
-        .rank-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 40px;
-            justify-content: center;
-        }
+<meta charset="UTF-8">
+<title>Ränge – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ---------------------- */
+/* BUTTONS FÜR RÄNGE      */
+/* ---------------------- */
+.rank-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+.rank-buttons button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+.rank-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
 
-        .rank-buttons button {
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-        }
+/* ---------------------- */
+/* "Wir suchen..." Bereich */
+/* ---------------------- */
+.hiring {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    background: rgba(255,255,255,0.05);
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #fff;
+}
 
-        /* BUTTON FARBEN NUR ALS HINTERGRUND */
-        .rank-buttons button:nth-child(1) { background: var(--spieler); color:#000; }      /* SPIELER */
-        .rank-buttons button:nth-child(2) { background: var(--vip); color:#000; }          /* VIP */
-        .rank-buttons button:nth-child(3) { background: var(--premium); }                  /* PREMIUM */
-        .rank-buttons button:nth-child(4) { background: var(--supreme); }                  /* SUPREME */
-        .rank-buttons button:nth-child(5) { background: var(--homie); }                    /* HOMIE */
-        .rank-buttons button:nth-child(6) { background: var(--creator); }                  /* CREATOR */
-        .rank-buttons button:nth-child(7) { background: var(--builder); }                  /* BUILDER */
-        .rank-buttons button:nth-child(8) { background: var(--support); color:#000; }      /* SUPPORT */
-        .rank-buttons button:nth-child(9) { background: var(--mod); }                       /* MOD */
-        .rank-buttons button:nth-child(10) { background: var(--developer); color:#000; }    /* DEVELOPER */
-        .rank-buttons button:nth-child(11) { background: var(--admin); }                    /* ADMIN */
-        .rank-buttons button:nth-child(12) { background: var(--owner); }                    /* OWNER */
+/* ---------------------- */
+/* RANG KARTEN GRADIENT    */
+/* ---------------------- */
+.info-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
 
-        .rank-buttons button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px currentColor;
-        }
+.card {
+    padding: 25px;
+    border-radius: 12px;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
 
-        /* ---------------------- */
-        /* RANG KARTEN GRADIENT    */
-        /* ---------------------- */
-        .info-grid {
-            display: grid;
-            gap: 25px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+}
 
-        .card {
-            padding: 25px;
-            border-radius: 12px;
-            color: #fff;
-            transition: 0.3s ease, transform 0.3s;
-            box-shadow: 0 0 8px rgba(0,0,0,0.3);
-        }
+/* Hover Overlay */
+.card::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(255,255,255,0);
+    transition: 0.3s;
+    border-radius: 12px;
+}
+.card:hover::after {
+    background: rgba(255,255,255,0.08);
+}
 
-        .card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 0 15px var(--cyan), 0 0 25px var(--purple);
-        }
+/* GRADIENT HINTERGRÜNDE */
+.rank-spieler { background: linear-gradient(135deg, #9ca3af, #6b7280); }
+.rank-supreme { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+.rank-vip { background: linear-gradient(135deg, #f5f5f5, #d4d4d8); color:#000; }
+.rank-homie { background: linear-gradient(135deg, #a855f7, #c084fc); }
+.rank-creator { background: linear-gradient(135deg, #ec4899, #f472b6); margin-top:40px; }
+.rank-builder { background: linear-gradient(135deg, #22c55e, #4ade80); margin-bottom:40px; }
+.rank-support { background: linear-gradient(135deg, #facc15, #fde047); color:#000; }
+.rank-mod { background: linear-gradient(135deg, #f87171, #fca5a5); }
+.rank-developer { background: linear-gradient(135deg, #55FFFF, #22d3ee); color:#000; }
+.rank-admin { background: linear-gradient(135deg, #ef4444, #f87171); }
+.rank-owner { background: linear-gradient(135deg, #b91c1c, #f87171); }
 
-        /* GRADIENT HINTERGRÜNDE PRO RANG */
-        .rank-spieler { background: linear-gradient(135deg, #9ca3af, #6b7280); }
-        .rank-vip { background: linear-gradient(135deg, #f5f5f5, #d4d4d8); color:#000; }
-        .rank-premium { background: linear-gradient(135deg, #f59e0b, #fcd34d); color:#000; }
-        .rank-supreme { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
-        .rank-homie { background: linear-gradient(135deg, #a855f7, #c084fc); }
-        .rank-creator { background: linear-gradient(135deg, #ec4899, #f472b6); }
-        .rank-builder { background: linear-gradient(135deg, #22c55e, #4ade80); }
-        .rank-support { background: linear-gradient(135deg, #facc15, #fde047); color:#000; }
-        .rank-mod { background: linear-gradient(135deg, #f87171, #fca5a5); }
-        .rank-developer { background: linear-gradient(135deg, #55FFFF, #22d3ee); color:#000; }
-        .rank-admin { background: linear-gradient(135deg, #ef4444, #f87171); }
-        .rank-owner { background: linear-gradient(135deg, #b91c1c, #f87171); }
+/* TEXT STYLE */
+.card h3 { margin-bottom: 12px; font-family: 'Orbitron', sans-serif; font-size: 20px; }
+.card p { font-size: 15px; line-height: 1.5; margin-bottom:8px; }
 
-        /* MEHRZEILIGE INFOS STIL */
-        .card h3 {
-            margin-bottom: 12px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-        }
-
-        .card p {
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-    </style>
+</style>
 </head>
 <body>
-
-<!-- PARTICLE HINTERGRUND -->
-<canvas id="particles"></canvas>
-<div class="fog"></div>
 
 <!-- HEADER -->
 <header>
     <div class="logo-container" onclick="location.href='index.html'">
         <img src="images/logo.jpg" alt="Logo">
-        <h1>
-            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
-        </h1>
+        <h1><span class="cyan">HomieCraft</span> <span class="purple">SMP</span></h1>
     </div>
     <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
@@ -128,16 +125,14 @@
 </nav>
 <div id="overlay" onclick="toggleMenu()"></div>
 
-<!-- RÄNGE SECTION -->
 <section id="ranks" class="section">
     <h2>Ränge auf HomieCraft SMP</h2>
 
-    <!-- BUTTONS FÜR RÄNGE -->
+    <!-- BUTTONS -->
     <div class="rank-buttons">
         <button onclick="scrollToRank('spieler')">Spieler</button>
-        <button onclick="scrollToRank('vip')">VIP</button>
-        <button onclick="scrollToRank('premium')">Premium</button>
         <button onclick="scrollToRank('supreme')">Supreme</button>
+        <button onclick="scrollToRank('vip')">VIP</button>
         <button onclick="scrollToRank('homie')">Homie</button>
         <button onclick="scrollToRank('creator')">Creator</button>
         <button onclick="scrollToRank('builder')">Builder</button>
@@ -148,90 +143,92 @@
         <button onclick="scrollToRank('owner')">Owner</button>
     </div>
 
-    <!-- ALLE RANG-KARTEN MIT VIEL INFO -->
+    <!-- HIRN: WIR SUCHEN -->
+    <div class="hiring">
+        <strong>Wir suchen aktuell:</strong> Creator & Builder für Bau-Projekte und Community-Events!
+    </div>
+
+    <!-- ALLE KARTEN -->
     <div class="info-grid">
         <div class="card rank-spieler" id="spieler">
             <h3>Spieler</h3>
-            <p>Standard-Rang für alle Spieler.</p>
-            <p>Features: /home, /spawn, /tpa, /rtp, Chatzugang, Events teilnehmen.</p>
-            <p>Zugang zu Survival, Basis-Items und Community-Server.</p>
-        </div>
-
-        <div class="card rank-vip" id="vip">
-            <h3>VIP</h3>
-            <p>Exklusiver Rang für treue Spieler.</p>
-            <p>Features: Zusätzliche /home Punkte, VIP-Skin Access, kleine kosmetische Extras.</p>
-            <p>Priorität bei Events und kleineren Server-Boosts.</p>
-        </div>
-
-        <div class="card rank-premium" id="premium">
-            <h3>Premium</h3>
-            <p>Besonderer Rang mit erweiterten Features.</p>
-            <p>Features: Mehr /home Punkte, exklusive Items, Ingame Währung Bonus.</p>
-            <p>Teilnahme an Premium-Events und besondere Chat-Badges.</p>
+            <p><strong>Prefix:</strong> &7[Spieler]</p>
+            <p><strong>Commands:</strong> /home, /spawn, /tpa, /rtp</p>
+            <p>Teilnahme an Events, Survival & Community-Aktivitäten.</p>
+            <p>Chatzugang und tägliche Belohnungen.</p>
         </div>
 
         <div class="card rank-supreme" id="supreme">
             <h3>Supreme</h3>
-            <p>Höherer Rang mit starken Vorteilen.</p>
-            <p>Features: Große kosmetische Extras, /back Zugriff, Server-Boni, exklusive Items.</p>
-            <p>Priorität bei Events und exklusiver Zugang zu neuen Spielmodi.</p>
+            <p><strong>Prefix:</strong> &1[Supreme]</p>
+            <p><strong>Commands:</strong> Alle Spieler-Commands + /back, exklusive Items</p>
+            <p>Kosmetische Extras, Priorität bei Events.</p>
+            <p>Erweiterte Features im Spielmodus.</p>
+        </div>
+
+        <div class="card rank-vip" id="vip">
+            <h3>VIP</h3>
+            <p><strong>Prefix:</strong> &5[VIP]</p>
+            <p><strong>Commands:</strong> Zusätzliche /home Punkte, VIP-Items, exklusive Skins</p>
+            <p>Teilnahme an VIP-Events und Server-Boni.</p>
         </div>
 
         <div class="card rank-homie" id="homie">
             <h3>Homie</h3>
-            <p>Community-Rang für treue Mitglieder.</p>
-            <p>Features: Spezielle Chatfarbe, Community-Boni, Zugang zu Homie-Events.</p>
-            <p>Exklusives Homie-Tag und kleine kosmetische Extras.</p>
+            <p><strong>Prefix:</strong> &d[Homie]</p>
+            <p><strong>Commands:</strong> /home, /tpa, Community-Boni</p>
+            <p>Exklusives Homie-Tag, Chatfarbe & Events.</p>
         </div>
 
         <div class="card rank-creator" id="creator">
             <h3>Creator</h3>
-            <p>Rang für kreative Köpfe.</p>
-            <p>Features: Teilnahme an Bau-Events, Zugriff auf besondere Baumöglichkeiten, kreative Items.</p>
-            <p>Exklusive Projekte und Community Challenges.</p>
+            <p><strong>Prefix:</strong> &c[Creator]</p>
+            <p><strong>Commands:</strong> Alle Homie-Commands + Bauwerkzeuge & kreative Items</p>
+            <p>Teilnahme an Bau-Projekten, exklusive Community-Challenges.</p>
+            <p>Eigene Bau-Projekte leiten und Events gestalten.</p>
         </div>
 
         <div class="card rank-builder" id="builder">
             <h3>Builder</h3>
-            <p>Offizieller Baumeister des Servers.</p>
-            <p>Features: Zugriff auf spezielle Baustellen, Bau-Kommandos, eigene Projekte leiten.</p>
-            <p>Unterstützung für Events und kreative Community-Projekte.</p>
+            <p><strong>Prefix:</strong> &2[Builder]</p>
+            <p><strong>Commands:</strong> Alle Creator-Commands + Spezial-Baustellen & Bau-Kommandos</p>
+            <p>Unterstützt Creator bei Projekten, Gestaltung von Event-Bauten.</p>
+            <p>Exklusive Bauwerkzeuge & Planungsrechte.</p>
         </div>
 
         <div class="card rank-support" id="support">
             <h3>Support</h3>
-            <p>Hilft Spielern bei Problemen.</p>
-            <p>Features: Zugriff auf Support-Kommandos, Chat-Moderation, Spielerhilfe.</p>
-            <p>Unterstützt Mod- und Admin-Team bei der Community Pflege.</p>
+            <p><strong>Prefix:</strong> &e[Support]</p>
+            <p><strong>Commands:</strong> Support-Kommandos, Spielerhilfe, Chat-Moderation</p>
+            <p>Unterstützt Mod-Team bei Regeln & Events.</p>
         </div>
 
         <div class="card rank-mod" id="mod">
             <h3>Moderator</h3>
-            <p>Moderiert den Server und schützt vor Griefing.</p>
-            <p>Features: Bann-/Kick-Kommandos, Spielerüberwachung, Events moderieren.</p>
-            <p>Community-Schutz und Regel-Durchsetzung.</p>
+            <p><strong>Prefix:</strong> &c[Mod]</p>
+            <p><strong>Commands:</strong> Ban/Kick, Chat-Kontrolle, Event-Moderation</p>
+            <p>Community-Schutz & Durchsetzung der Regeln.</p>
         </div>
 
         <div class="card rank-developer" id="developer">
             <h3>Developer</h3>
-            <p>Entwickler des Servers.</p>
-            <p>Features: Zugriff auf alle technischen Tools, Updates, Plugins verwalten.</p>
-            <p>Design und Entwicklung neuer Features.</p>
+            <p><strong>Prefix:</strong> &b[Dev]</p>
+            <p><strong>Commands:</strong> Alle technischen Admin-Kommandos, Plugin-Management</p>
+            <p>Server-Design, Entwicklung & Updates.</p>
         </div>
 
         <div class="card rank-admin" id="admin">
             <h3>Admin</h3>
-            <p>Leitet den Server administrativ.</p>
-            <p>Features: Zugriff auf alle Admin-Kommandos, Events organisieren, Serverwartung.</p>
-            <p>Kontrolle über alle Team- und Spieleraktionen.</p>
+            <p><strong>Prefix:</strong> &4[Admin]</p>
+            <p><strong>Commands:</strong> Vollzugriff auf Admin-Tools, Event-Management</p>
+            <p>Server-Wartung & Kontrolle über Team-Aktivitäten.</p>
         </div>
 
         <div class="card rank-owner" id="owner">
             <h3>Owner</h3>
-            <p>Besitzer des Servers.</p>
-            <p>Features: Vollzugriff auf alles, Entscheidungen über Serverentwicklung, Events und Team.</p>
-            <p>Endverantwortung und Kontrolle über alle Bereiche des Servers.</p>
+            <p><strong>Prefix:</strong> &4[Owner]</p>
+            <p><strong>Commands:</strong> Alle Commands, komplette Server-Verwaltung</p>
+            <p>Endverantwortung, Server-Entwicklung & Teamleitung.</p>
         </div>
 
     </div>
@@ -248,9 +245,6 @@
     </div>
 </footer>
 
-<!-- SCROLL TOP -->
-<button id="scrollTop" onclick="scrollToTop()">↑</button>
-
 <script src="script.js"></script>
 <script>
 function scrollToRank(rankId){
@@ -260,6 +254,5 @@ function scrollToRank(rankId){
     }
 }
 </script>
-
 </body>
 </html>
