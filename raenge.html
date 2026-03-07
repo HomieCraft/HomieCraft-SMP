@@ -1,66 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Ränge – HomieCraft SMP</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-<style>
-/* Ränge spezifisch */
-.rank-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-.rank-buttons button {
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    color: #fff;
-}
-.rank-buttons button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px currentColor;
-}
-.rank-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-.rank-card {
-    padding: 25px;
-    border-radius: 12px;
-    color: #fff;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: default;
-}
-.rank-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-/* Farbige Ränge */
-.rank-spieler { background: #9ca3af; color: #000; }
-.rank-vip { background: #f5f5f5; color: #000; }
-.rank-premium { background: #f59e0b; }
-.rank-supreme { background: #1e3a8a; }
-.rank-homie { background: #a855f7; }
-.rank-creator { background: #ec4899; }
-.rank-builder { background: #22c55e; }
-.rank-support { background: #facc15; color:#000; }
-.rank-mod { background: #f87171; }
-.rank-developer { background: #55FFFF; color:#000; }
-.rank-admin { background: #ef4444; }
-.rank-owner { background: #b91c1c; }
-.rank-card h3 { margin-bottom: 10px; }
-.rank-card ul { list-style: disc inside; }
-</style>
+    <meta charset="UTF-8">
+    <title>Ränge – HomieCraft SMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -92,142 +38,74 @@
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <!-- RÄNGE SECTION -->
-<section class="section">
+<section id="ranks" class="section">
     <h2>Ränge auf HomieCraft SMP</h2>
-
-    <!-- Klickbare Buttons zum Scrollen -->
+    
+    <!-- BUTTONS FÜR RÄNGE -->
     <div class="rank-buttons">
-        <button onclick="scrollToRank('spieler')">SPIELER</button>
+        <button onclick="scrollToRank('spieler')">Spieler</button>
         <button onclick="scrollToRank('vip')">VIP</button>
-        <button onclick="scrollToRank('premium')">PREMIUM</button>
-        <button onclick="scrollToRank('supreme')">SUPREME</button>
-        <button onclick="scrollToRank('homie')">HOMIE</button>
-        <button onclick="scrollToRank('creator')">CREATOR</button>
-        <button onclick="scrollToRank('builder')">BUILDER</button>
-        <button onclick="scrollToRank('support')">SUPPORT</button>
-        <button onclick="scrollToRank('mod')">MOD</button>
-        <button onclick="scrollToRank('developer')">DEVELOPER</button>
-        <button onclick="scrollToRank('admin')">ADMIN</button>
-        <button onclick="scrollToRank('owner')">OWNER</button>
+        <button onclick="scrollToRank('premium')">Premium</button>
+        <button onclick="scrollToRank('supreme')">Supreme</button>
+        <button onclick="scrollToRank('homie')">Homie</button>
+        <button onclick="scrollToRank('creator')">Creator</button>
+        <button onclick="scrollToRank('builder')">Builder</button>
+        <button onclick="scrollToRank('support')">Support</button>
+        <button onclick="scrollToRank('mod')">Mod</button>
+        <button onclick="scrollToRank('developer')">Developer</button>
+        <button onclick="scrollToRank('admin')">Admin</button>
+        <button onclick="scrollToRank('owner')">Owner</button>
     </div>
 
-    <!-- Alle Ränge-Karten offen -->
-    <div class="rank-cards">
-        <div id="spieler" class="rank-card rank-spieler">
-            <h3>SPIELER</h3>
-            <p>Normale Spieler, die das Abenteuer genießen.</p>
-            <ul>
-                <li>Normale Rechte</li>
-                <li>Teilnahme am Spielgeschehen</li>
-            </ul>
+    <!-- ALLE RANG-KARTEN -->
+    <div class="info-grid">
+        <div class="card rank-spieler" id="spieler">
+            <h3>Spieler</h3>
+            <p>Standard-Rang für alle Homies. Zugang zu allen Basis-Features wie /home, /spawn, /tpa.</p>
         </div>
-
-        <div id="vip" class="rank-card rank-vip">
+        <div class="card rank-vip" id="vip">
             <h3>VIP</h3>
-            <p>VIP Spieler erhalten kleine Extras im Spiel.</p>
-            <ul>
-                <li>Extra Slots</li>
-                <li>Schöne Items</li>
-                <li>Schnelleres Reisen</li>
-            </ul>
+            <p>Exklusiver Rang mit besonderen Cosmetics und etwas mehr Slots für /homes.</p>
         </div>
-
-        <div id="premium" class="rank-card rank-premium">
-            <h3>PREMIUM</h3>
-            <p>Premium Spieler genießen kleine Boni.</p>
-            <ul>
-                <li>Extras & Boni</li>
-                <li>Besondere Belohnungen</li>
-            </ul>
+        <div class="card rank-premium" id="premium">
+            <h3>Premium</h3>
+            <p>Erweiterte Features, mehr /home Möglichkeiten, VIP-Belohnungen und Priorität bei Events.</p>
         </div>
-
-        <div id="supreme" class="rank-card rank-supreme">
-            <h3>SUPREME</h3>
-            <p>Supreme Spieler erhalten viele Vorteile und Anerkennung.</p>
-            <ul>
-                <li>Besondere Fähigkeiten</li>
-                <li>Exklusive Items</li>
-                <li>Hervorgehobener Rang</li>
-            </ul>
+        <div class="card rank-supreme" id="supreme">
+            <h3>Supreme</h3>
+            <p>Besondere Fähigkeiten und exklusive Items im Spiel. Premium Plus Vorteile.</p>
         </div>
-
-        <div id="homie" class="rank-card rank-homie">
-            <h3>HOMIE</h3>
-            <p>Homies sind enge Freunde des Teams mit speziellen Rechten.</p>
-            <ul>
-                <li>Private Serverbereiche</li>
-                <li>Exklusive Chatrechte</li>
-            </ul>
+        <div class="card rank-homie" id="homie">
+            <h3>Homie</h3>
+            <p>Community-Rang für treue Spieler. Zugang zu Homie-spezifischen Belohnungen.</p>
         </div>
-
-        <div id="creator" class="rank-card rank-creator">
-            <h3>CREATOR</h3>
-            <p>Creator haben besondere Features für Content und Community Aktionen.</p>
-            <ul>
-                <li>Besondere Items</li>
-                <li>Exklusive Rechte</li>
-                <li>Community Projekte</li>
-            </ul>
+        <div class="card rank-creator" id="creator">
+            <h3>Creator</h3>
+            <p>Besondere Kreativ-Funktionen, Zugang zu Bauevents und kreativen Features.</p>
         </div>
-
-        <div id="builder" class="rank-card rank-builder">
-            <h3>BUILDER</h3>
-            <p>Builder gestalten die Welt und besondere Bauwerke.</p>
-            <ul>
-                <li>Gebäude bauen</li>
-                <li>Spawn & Mapdesign</li>
-                <li>Events dekorieren</li>
-            </ul>
+        <div class="card rank-builder" id="builder">
+            <h3>Builder</h3>
+            <p>Baumeister des Servers. Kann besondere Strukturen bauen und Projekte leiten.</p>
         </div>
-
-        <div id="support" class="rank-card rank-support">
-            <h3>SUPPORT</h3>
-            <p>Supporter helfen Spielern bei Problemen und Fragen.</p>
-            <ul>
-                <li>Spielerhilfe</li>
-                <li>Ticketsystem</li>
-                <li>Fragen beantworten</li>
-            </ul>
+        <div class="card rank-support" id="support">
+            <h3>Support</h3>
+            <p>Hilft Spielern bei Problemen. Zugriff auf Support-Kommandos.</p>
         </div>
-
-        <div id="mod" class="rank-card rank-mod">
-            <h3>MOD</h3>
-            <p>Moderatoren achten auf Regeln und sorgen für ein faires Spiel.</p>
-            <ul>
-                <li>Regelüberwachung</li>
-                <li>Spieler verwarnen/kicken</li>
-                <li>Unterstützung von Events</li>
-            </ul>
+        <div class="card rank-mod" id="mod">
+            <h3>Mod</h3>
+            <p>Moderiert den Server, schützt vor Griefing und sorgt für Ordnung.</p>
         </div>
-
-        <div id="developer" class="rank-card rank-developer">
-            <h3>DEVELOPER</h3>
-            <p>Developer kümmern sich um Plugins, Features und technische Verbesserungen.</p>
-            <ul>
-                <li>Entwicklung von Plugins</li>
-                <li>Fehlerbehebung</li>
-                <li>Neue Features implementieren</li>
-            </ul>
+        <div class="card rank-developer" id="developer">
+            <h3>Developer</h3>
+            <p>Entwickler des Servers. Zugriff auf alle technischen Tools und Updates.</p>
         </div>
-
-        <div id="admin" class="rank-card rank-admin">
-            <h3>ADMIN</h3>
-            <p>Administratoren helfen beim Management des Servers.</p>
-            <ul>
-                <li>Befehle zur Spielerverwaltung</li>
-                <li>Moderation</li>
-                <li>Event Unterstützung</li>
-            </ul>
+        <div class="card rank-admin" id="admin">
+            <h3>Admin</h3>
+            <p>Leitet den Server. Zugriff auf alle administrativen Funktionen.</p>
         </div>
-
-        <div id="owner" class="rank-card rank-owner">
-            <h3>OWNER</h3>
-            <p>Die Serverbesitzer haben alle Rechte und volle Kontrolle.</p>
-            <ul>
-                <li>Vollzugriff auf Server</li>
-                <li>Verwaltung von Teammitgliedern</li>
-                <li>Besondere Belohnungen</li>
-            </ul>
+        <div class="card rank-owner" id="owner">
+            <h3>Owner</h3>
+            <p>Besitzer des Servers. Vollzugriff auf alles, Entscheidungen über den Server.</p>
         </div>
     </div>
 </section>
@@ -247,10 +125,14 @@
 <button id="scrollTop" onclick="scrollToTop()">↑</button>
 
 <script src="script.js"></script>
+
 <script>
-function scrollToRank(id) {
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+// Scroll zum Rang bei Button Klick
+function scrollToRank(rankId){
+    const el = document.getElementById(rankId);
+    if(el){
+        window.scrollTo({top: el.offsetTop - 100, behavior: 'smooth'});
+    }
 }
 </script>
 
