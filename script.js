@@ -87,7 +87,7 @@ const teamMembers=[
 {name:"LucaMaximal",rank:"owner"},
 {name:"Eierfratze0815",rank:"owner"},
 {name:"LucaMaximal",rank:"developer"},
-{name:"? Unbekannt",rank:"moderator"},
+{name:"? Unbekannt",rank:"mod"},
 {name:"Saro4444444",rank:"support"},
 {name:"? GESUCHT! GESUCHT!",rank:"builder"},
 {name:"? GESUCHT! GESUCHT!",rank:"creator"}
