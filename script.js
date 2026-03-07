@@ -19,7 +19,7 @@ const scrollBtn=document.getElementById("scrollTop");
 
 window.onscroll=function(){
     if(scrollBtn){
-        if(document.documentElement.scrollTop>100){
+        if(document.documentElement.scrollTop>200){
             scrollBtn.style.display="block";
         }else{
             scrollBtn.style.display="none";
