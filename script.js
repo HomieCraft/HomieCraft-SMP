@@ -196,5 +196,17 @@ window.addEventListener("resize",()=>{
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 });
-
+document.querySelectorAll("#sidebar a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.getElementById("sidebar").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+});
+});
+});
+window.addEventListener("load",()=>{
+document.querySelectorAll(".hero-title,.subtitle,.hero-buttons")
+.forEach(el=>{
+el.style.opacity=1;
+el.style.transform="translateY(0)";
+});
 });
