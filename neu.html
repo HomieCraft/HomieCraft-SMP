@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>News – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- PARTICLE HINTERGRUND -->
+<canvas id="particles"></canvas>
+<div class="fog"></div>
+
+<!-- HEADER (wie Index) -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- SIDEBAR (wie Index) -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- NEWS SECTION -->
+<section class="section">
+    <h2>News / Ankündigungen</h2>
+
+    <div class="info-grid">
+
+        <article class="card" id="news-2026-03-07" aria-labelledby="news-2026-03-07-title">
+            <header>
+                <h3 id="news-2026-03-07-title">
+                    <time datetime="2026-03-07">07.03.2026</time> — Website Update
+                </h3>
+            </header>
+
+            <p>Wir haben nun eine eigene Website! 🎉 Ab sofort findest du dort alle wichtigen Informationen rund um unseren Minecraft-Server übersichtlich an einem Ort. Auf der Website kannst du zum Beispiel unser Regelwerk lesen, dich über Spielmodi und Server-Features informieren, das Team kennenlernen und hilfreiche Commands nachschlagen.</p>
+
+            <p>Außerdem findest du dort Infos zu unseren Spielmodi, unseren Server-Features, eine Übersicht über die Teammitglieder, hilfreiche Commands, Tipps & Tricks sowie eine FAQ mit Antworten auf häufige Fragen.</p>
+
+            <p>Diese Nachricht liest du gerade im News-Bereich unserer Website, wo wir dich in Zukunft regelmäßig über alles Neue rund um den Server informieren werden. Schau also gerne öfter vorbei, damit du keine Ankündigung verpasst!</p>
+
+            <footer class="meta">
+                <span class="author">HomieCraft Team</span>
+            </footer>
+        </article>
+
+        <article class="card" id="news-2026-03-08" aria-labelledby="news-2026-03-08-title">
+            <header>
+                <h3 id="news-2026-03-08-title">
+                    <time datetime="2026-03-08">08.03.2026</time> — Server Update: Neuer Rang
+                </h3>
+            </header>
+
+            <p>Wir freuen uns, euch ein neues Server-Update vorstellen zu dürfen. Ab sofort gibt es auf unserem Minecraft-Server einen neuen Rang: <strong>Homie</strong>. Dieser Rang stellt ab sofort den höchsten Spieler-Rang dar und wird an besonders engagierte, langjährige Mitglieder vergeben.</p>
+
+            <p>Der Rang <strong>Homie</strong> wurde eingeführt, um Spielern, die sich über einen längeren Zeitraum hinweg positiv auf dem Server einbringen, eine besondere Anerkennung zu geben. Er steht über allen bisherigen Spieler-Rängen.</p>
+
+            <p>Wichtig zu wissen ist, dass dieser Rang <strong>nicht leicht zu erhalten ist</strong>. Der Rang Homie soll etwas Besonderes bleiben und wird daher nur an Spieler vergeben, die sich langfristig durch Aktivität und positives Verhalten auszeichnen.</p>
+
+            <p>Mit dem Rang Homie gehen selbstverständlich auch verschiedene Vorteile einher. Dazu gehören unter anderem ein besonderes Chat-Prefix, zusätzliche Funktionen sowie weitere kleine Extras, die euch das Spielen verschönern.</p>
+
+            <p>Zur besseren Übersicht hier noch einmal unsere aktuelle Rangstruktur auf dem Server:</p>
+
+            <p><strong>Spieler-Ränge</strong><br>Spieler → Premium → Supreme → VIP → Creator → <strong>Homie</strong></p>
+
+            <p><strong>Team-Ränge</strong><br>Builder → Supporter → Moderator → Developer → Admin → Owner</p>
+
+            <p>Der Rang Homie bildet somit den <strong>höchsten erreichbaren Rang für normale Spieler</strong> innerhalb unserer Community. Wenn ihr mehr über den Rang Homie erfahren möchtet, welche Voraussetzungen es gibt und welche Vorteile enthalten sind, findet ihr alle weiteren Informationen auf der entsprechenden Seite.</p>
+
+            <p><strong>Mehr Informationen zum Rang Homie – klicke <a href="raenge.html">hier</a>.</strong></p>
+
+            <footer class="meta">
+                <span class="author">HomieCraft Team</span>
+            </footer>
+        </article>
+
+        <!-- Optional: Weitere Artikel können hier als <article class="card"> hinzugefügt werden -->
+
+    </div>
+</section>
+
+<!-- FOOTER (wie Index) -->
+<footer>
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
+</footer>
+
+<!-- SCROLL TOP (wie Index) -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
