@@ -1,75 +1,177 @@
-<style>
-    /* Card styling: transparent dunkel, abgerundet, Shadow */
-.card {
-  background: linear-gradient(180deg, rgba(8,10,20,0.55), rgba(20,12,40,0.55));
-  color: #ffffff;
-  padding: 1.1rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(6px);
-  position: relative;
-  z-index: 2; /* sorgt dafür, dass Card über Canvas/Overlay liegt */
-}
-
-/* Grid spacing */
-.info-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-/* Headline/Time styling */
-.card h3 {
-  margin: 0 0 0.6rem 0;
-  font-size: 1.05rem;
-  color: #e6f7ff;
-  font-weight: 600;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.card time {
-  color: #9be7ff;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-/* Footer (Seiten-Footer) über dem Canvas platzieren */
-footer {
-  position: relative;
-  z-index: 3;
-}
-
-/* Falls du ein Overlay/Canvas hast: Stelle sicher, dass es hinter den Inhalten liegt */
-#particles, .fog, #overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Page content sollte höhere z-index haben */
-body > header,
-body > section,
-footer,
-.info-grid,
-.card {
-  z-index: 2;
-}
-
-/* Falls deine bestehende CSS .card { background: #fff } enthält, überschreibe sie mit !important (nur zur Fehlersuche) */
-/* .card { background: rgba(10,10,10,0.6) !important; } */
-</style>
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <title>News – HomieCraft SMP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Eingebettetes CSS (kopieren in style.css wenn du willst) -->
+<style>
+  :root{
+    --bg-dark: #090b10;
+    --card-bg: rgba(8,10,20,0.65);
+    --accent-cyan: #9be7ff;
+    --text-light: #eaf8ff;
+    --muted: rgba(255,255,255,0.75);
+    --card-radius: 12px;
+    --glass-border: rgba(255,255,255,0.06);
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: "Rajdhani", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#06060a 0%, #0f0f18 100%);
+    color:var(--muted);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Canvas/Fog/Overlay im Hintergrund */
+  #particles,
+  .fog,
+  #overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Header (unverändert optisch, aber sicherstellen, dass es über dem Canvas liegt) */
+  header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:0.8rem 1rem;
+    position:relative;
+    z-index:4;
+  }
+  .logo-container{
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+    cursor:pointer;
+  }
+  .logo-container img{ width:48px; height:48px; object-fit:cover; border-radius:6px; }
+  .logo-container h1{ margin:0; font-size:1.1rem; font-weight:700; color:var(--text-light); }
+  .logo-container .cyan{ color:#8ef; }
+  .logo-container .purple{ color:#caa3ff; opacity:0.95; }
+
+  .burger{
+    font-size:1.4rem;
+    cursor:pointer;
+    user-select:none;
+  }
+
+  /* Sidebar / overlay */
+  #sidebar { position:relative; z-index:4; }
+  #overlay { z-index:1; }
+
+  /* Page section */
+  .section{
+    padding:1.2rem;
+    max-width:1100px;
+    margin: 0 auto 3rem auto;
+    position:relative;
+    z-index:3;
+  }
+  .section h2{
+    margin:0 0 1rem 0;
+    color:var(--text-light);
+    font-weight:700;
+    font-size:1.35rem;
+  }
+
+  /* Grid & cards */
+  .info-grid{
+    display:grid;
+    gap:1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items:start;
+  }
+
+  .card{
+    background: linear-gradient(180deg, rgba(6,8,16,0.68), rgba(18,12,36,0.58));
+    color: #ffffff;
+    padding:1.05rem;
+    border-radius: var(--card-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(6px);
+    position:relative;
+    z-index:3;
+    overflow:hidden;
+  }
+
+  .card header { margin-bottom:0.6rem; }
+  .card h3{
+    margin:0;
+    font-size:1.02rem;
+    color: var(--text-light);
+    font-weight:700;
+    display:flex;
+    gap:0.6rem;
+    align-items:baseline;
+  }
+  .card time{
+    color: var(--accent-cyan);
+    font-weight:700;
+    font-size:0.95rem;
+  }
+
+  .card p{
+    margin:0.5rem 0;
+    line-height:1.45;
+    color: #dfeef7;
+    font-weight:400;
+    font-size:0.95rem;
+  }
+
+  .card .meta{ margin-top:0.8rem; display:block; color: #bcdcef; font-size:0.85rem; }
+
+  /* Footer stays above background but below header */
+  footer{
+    padding:1rem;
+    margin-top:1.2rem;
+    position:relative;
+    z-index:3;
+    color:var(--muted);
+  }
+  .footer-content{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    gap:1.2rem;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .footer-content p{ margin:0; font-size:0.92rem; }
+
+  /* Scroll top */
+  #scrollTop{
+    position:fixed;
+    right:1rem;
+    bottom:1rem;
+    z-index:5;
+    background:#0b6cff;
+    color:#fff;
+    border:0;
+    border-radius:8px;
+    padding:0.4rem 0.6rem;
+    cursor:pointer;
+    box-shadow: 0 8px 20px rgba(11,108,255,0.2);
+  }
+
+  /* Responsive tweaks */
+  @media (max-width:560px){
+    .logo-container h1{ font-size:1rem; }
+    .section{ padding:0.9rem; }
+    .card { padding:0.85rem; }
+  }
+</style>
 </head>
 <body>
 
@@ -113,11 +215,9 @@ footer,
                 </h3>
             </header>
 
-            <p>Wir haben nun eine eigene Website! 🎉 Ab sofort findest du dort alle wichtigen Informationen rund um unseren Minecraft-Server übersichtlich an einem Ort. Auf der Website kannst du zum Beispiel unser Regelwerk lesen, dich über Spielmodi und Server-Features informieren, das Team kennenlernen und hilfreiche Commands nachschlagen.</p>
+            <p>Wir haben nun eine eigene Website! 🎉 Ab sofort findest du dort alle wichtigen Informationen rund um unseren Minecraft-Server übersichtlich an einem Ort. Auf der Website kannst du zum Beispiel unser Regelwerk lesen, dich über Spielmodi und Server-Features informieren und hilfreiche Commands nachschlagen.</p>
 
-            <p>Außerdem findest du dort Infos zu unseren Spielmodi, unseren Server-Features, eine Übersicht über die Teammitglieder, hilfreiche Commands, Tipps & Tricks sowie eine FAQ mit Antworten auf häufige Fragen.</p>
-
-            <p>Diese Nachricht liest du gerade im News-Bereich unserer Website, wo wir dich in Zukunft regelmäßig über alles Neue rund um den Server informieren werden. Schau also gerne öfter vorbei, damit du keine Ankündigung verpasst!</p>
+            <p>Außerdem findest du dort eine Übersicht über das Team, Tipps & Tricks sowie eine FAQ mit Antworten auf häufige Fragen. Die Seite wird regelmäßig erweitert — schau also gern öfter vorbei!</p>
 
             <footer class="meta">
                 <span class="author">HomieCraft Team</span>
@@ -131,28 +231,24 @@ footer,
                 </h3>
             </header>
 
-            <p>Wir freuen uns, euch ein neues Server-Update vorstellen zu dürfen. Ab sofort gibt es auf unserem Minecraft-Server einen neuen Rang: <strong>Homie</strong>. Dieser Rang stellt ab sofort den höchsten Spieler-Rang dar und wird an besonders engagierte, langjährige Mitglieder vergeben.</p>
+            <p>Wir freuen uns, euch ein neues Server-Update vorstellen zu dürfen. Ab sofort gibt es auf unserem Minecraft-Server einen neuen Rang: <strong>Homie</strong>. Dieser Rang ist die höchste Stufe, die normale Spieler erreichen können und wird an besonders engagierte, langjährige Mitglieder vergeben.</p>
 
-            <p>Der Rang <strong>Homie</strong> wurde eingeführt, um Spielern, die sich über einen längeren Zeitraum hinweg positiv auf dem Server einbringen, eine besondere Anerkennung zu geben. Er steht über allen bisherigen Spieler-Rängen.</p>
+            <p>Der Rang <strong>Homie</strong> wird nur an Spieler verliehen, die sich langfristig durch Aktivität und positives Verhalten auszeichnen. Er soll etwas Besonderes bleiben und ist daher nicht leicht zu erreichen.</p>
 
-            <p>Wichtig zu wissen ist, dass dieser Rang <strong>nicht leicht zu erhalten ist</strong>. Der Rang Homie soll etwas Besonderes bleiben und wird daher nur an Spieler vergeben, die sich langfristig durch Aktivität und positives Verhalten auszeichnen.</p>
-
-            <p>Mit dem Rang Homie gehen selbstverständlich auch verschiedene Vorteile einher. Dazu gehören unter anderem ein besonderes Chat-Prefix, zusätzliche Funktionen sowie weitere kleine Extras, die euch das Spielen verschönern.</p>
-
-            <p>Zur besseren Übersicht hier noch einmal unsere aktuelle Rangstruktur auf dem Server:</p>
+            <p>Mit dem Rang sind verschiedene Vorteile verbunden, z. B. ein besonderes Chat-Prefix und zusätzliche kleine Extras, die das Spielerlebnis verschönern.</p>
 
             <p><strong>Spieler-Ränge</strong><br>Spieler → Premium → Supreme → VIP → Creator → <strong>Homie</strong></p>
 
             <p><strong>Team-Ränge</strong><br>Builder → Supporter → Moderator → Developer → Admin → Owner</p>
 
-            <p>Der Rang Homie bildet somit den <strong>höchsten erreichbaren Rang für normale Spieler</strong> innerhalb unserer Community. Wenn ihr mehr über den Rang Homie erfahren möchtet, welche Voraussetzungen es gibt und welche Vorteile enthalten sind, findet ihr alle weiteren Informationen auf der entsprechenden Seite.</p>
-
-            <p><strong>Mehr Informationen zum Rang Homie – klicke <a href="raenge.html">hier</a>.</strong></p>
+            <p>Mehr Informationen zum Rang Homie findest du auf der Ränge-Seite: <a href="raenge.html">Hier klicken</a>.</p>
 
             <footer class="meta">
                 <span class="author">HomieCraft Team</span>
             </footer>
         </article>
+
+        <!-- Weitere Artikel als <article class="card"> hinzufügen -->
 
     </div>
 </section>
