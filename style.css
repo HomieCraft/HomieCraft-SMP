@@ -198,9 +198,9 @@ footer p{margin:6px 0;}
 
 /* Farben passend zum Rang */
 .rank-buttons button:nth-child(1) { background: var(--spieler); color:#000; }      /* SPIELER */
-.rank-buttons button:nth-child(2) { background: var(--vip); color:#000; }          /* VIP */
-.rank-buttons button:nth-child(3) { background: var(--premium); }                  /* PREMIUM */
-.rank-buttons button:nth-child(4) { background: var(--supreme); }                  /* SUPREME */
+.rank-buttons button:nth-child(2) { background: var(--premium); }                  /* PREMIUM */
+.rank-buttons button:nth-child(3) { background: var(--supreme); }                  /* SUPREME */
+.rank-buttons button:nth-child(4) { background: var(--vip); color:#000; }          /* VIP */
 .rank-buttons button:nth-child(5) { background: var(--homie); }                    /* HOMIE */
 .rank-buttons button:nth-child(6) { background: var(--creator); }                  /* CREATOR */
 .rank-buttons button:nth-child(7) { background: var(--builder); }                  /* BUILDER */
