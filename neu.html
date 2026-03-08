@@ -1,3 +1,67 @@
+<style>
+    /* Card styling: transparent dunkel, abgerundet, Shadow */
+.card {
+  background: linear-gradient(180deg, rgba(8,10,20,0.55), rgba(20,12,40,0.55));
+  color: #ffffff;
+  padding: 1.1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 2; /* sorgt dafür, dass Card über Canvas/Overlay liegt */
+}
+
+/* Grid spacing */
+.info-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Headline/Time styling */
+.card h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.05rem;
+  color: #e6f7ff;
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.card time {
+  color: #9be7ff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Footer (Seiten-Footer) über dem Canvas platzieren */
+footer {
+  position: relative;
+  z-index: 3;
+}
+
+/* Falls du ein Overlay/Canvas hast: Stelle sicher, dass es hinter den Inhalten liegt */
+#particles, .fog, #overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Page content sollte höhere z-index haben */
+body > header,
+body > section,
+footer,
+.info-grid,
+.card {
+  z-index: 2;
+}
+
+/* Falls deine bestehende CSS .card { background: #fff } enthält, überschreibe sie mit !important (nur zur Fehlersuche) */
+/* .card { background: rgba(10,10,10,0.6) !important; } */
+</style>
 <!DOCTYPE html>
 <html lang="de">
 <head>
