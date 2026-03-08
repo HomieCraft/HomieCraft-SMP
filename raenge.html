@@ -102,31 +102,40 @@
 .card p { font-size: 15px; line-height: 1.5; margin-bottom:8px; }
 
 <style>
+:root {
+  --owner:#b91c1c;
+  --admin:#ef4444;
+  --developer:#55FFFF;
+  --mod:#f87171;
+  --support:#facc15;
+  --builder:#22c55e;
+  --creator:#ec4899;
+  --homie:#a855f7;
+  --vip:#f5f5f5;
+  --supreme:#1e3a8a;
+  --premium:#f59e0b;
+  --spieler:#9ca3af;
+}
+
 .prefix {
+  background:black;
   padding:2px 6px;
   border-radius:4px;
+  font-family: monospace;
 }
-
-.prefix-spieler {
-  background:black;
-  color:#AAAAAA;
-}
-
-.prefix-mod {
-  background:green;
-  color:white;
-}
-
-.prefix-admin {
-  background:red;
-  color:white;
-}
-
-.prefix-owner {
-  background:purple;
-  color:white;
-  font-weight:bold;
-}
+/* Ränge */
+.prefix-owner { color:var(--owner); font-weight:bold; }
+.prefix-admin { color:var(--admin); font-weight:bold; }
+.prefix-developer { color:var(--developer); font-weight:bold; }
+.prefix-mod { color:var(--mod); font-weight:bold; }
+.prefix-support { color:var(--support); }
+.prefix-builder { color:var(--builder); }
+.prefix-creator { color:var(--creator); font-weight:bold; }
+.prefix-homie { color:var(--homie); font-weight:bold; }
+.prefix-vip { color:var(--vip); font-weight:bold; }
+.prefix-supreme { color:var(--supreme); }
+.prefix-premium { color:var(--premium); }
+.prefix-spieler { color:var(--spieler); }
 </style>
 
 </style>
@@ -275,14 +284,14 @@
 
         <div class="card rank-admin" id="admin">
             <h3>Admin</h3>
-            <p><strong>Prefix:</strong> <span style="color: #AA0000; font-weight: bold;">ADMIN</span></p>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-admin">ADMIN</span></p>
             <p><strong>Commands:</strong> Vollzugriff auf Admin-Tools, Event-Management</p>
             <p>Server-Wartung & Kontrolle über Team-Aktivitäten.</p>
         </div>
 
         <div class="card rank-owner" id="owner">
             <h3>Owner</h3>
-            <p><strong>Prefix:</strong> <span style="color: #AA0000; font-weight: bold;">OWNER</span></p>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-owner">OWNER</span></p>
             <p><strong>Commands:</strong> Alle Commands, komplette Server-Verwaltung</p>
             <p>Endverantwortung, Server-Entwicklung & Teamleitung.</p>
         </div>
