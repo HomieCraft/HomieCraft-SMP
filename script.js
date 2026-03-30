@@ -8,7 +8,7 @@ window.toggleMenu=function(){
 
 // COPY IP
 window.copyIP=function(){
-    navigator.clipboard.writeText("homiecraft-smp.aternos.me");
+    navigator.clipboard.writeText("homiecraft.falix.gg");
     const btn=document.querySelector(".btn-primary");
     btn.innerText="✔ Kopiert";
     setTimeout(()=>{btn.innerText="IP kopieren";},2000);
