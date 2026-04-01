@@ -42,7 +42,7 @@ document.querySelectorAll(".accordion-header").forEach(header=>{
 
 // SERVER API
 function loadServerStatus(){
-    fetch("https://api.mcsrvstat.us/2/homiecraft.falix.gf")
+    fetch("https://api.mcsrvstat.us/2/homiecraft.falix.gg")
     .then(res=>res.json())
     .then(data=>{
         const statusEl=document.getElementById("server-status");
